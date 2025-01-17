@@ -20,7 +20,6 @@ const SectionEtc = () => {
           title="기타활동"
           desc="아이디어톤 등과 같이 매년 진행되는 프로젝트 외의 활동"
           postsData={postsData}
-          setPostsData={setPostsData}
         />
       </div>
     </div>
