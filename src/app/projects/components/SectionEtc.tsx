@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PostPreviewSection from "./postPreview/PostPreviewSection";
-import fetchPosts from "@/functions/fetchPosts";
+import fetchPosts from "@/features/fetchPosts";
 
 const SectionEtc = () => {
   const [selectedActivity, setSelectedActivity] =
@@ -9,7 +9,7 @@ const SectionEtc = () => {
     const [error, setError] = useState<string | null>(null);
   
     useEffect(() => {
-      fetchPosts("/api/activities/etc", setPostsData, setError, false);
+      fetchPosts("/etc", setPostsData, setError, false);
     }, []);
   
 

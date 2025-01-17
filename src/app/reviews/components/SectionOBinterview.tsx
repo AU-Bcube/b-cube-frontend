@@ -6,8 +6,16 @@ import ActivityButton from "@/components/activityButton";
 import MobileButton from "@/mobileComponents/mobileButton"; // 모바일 버튼 컴포넌트 추가
 import useStore from "@/stores/useStore"; // Zustand 스토어를 가져오는 경로
 
+interface InterviewItem {
+  id: number;
+  name: string;
+  studentId: string;
+  introduction: string;
+  imagePath: string;
+}
+
 const SectionOBinterview = () => {
-  const [postData, setPostData] = useState<any[]>([]);
+  const [postData, setPostData] = useState<InterviewItem[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState<number>(6); // 초기값 6
   const { isMobile } = useStore(); // Zustand에서 isMobile 상태 가져오기
@@ -17,7 +25,7 @@ const SectionOBinterview = () => {
   }, []);
 
   const fetchPosts = () => {
-    fetch(`${process.env.NEXT_PUBLIC_API_HOST}/api/ob-interviews`)
+    fetch(`${process.env.NEXT_PUBLIC_API_HOST}/interview`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("네트워크 응답이 올바르지 않습니다.");
@@ -25,6 +33,7 @@ const SectionOBinterview = () => {
         return response.json();
       })
       .then((data) => {
+        console.log("데이터를 성공적으로 불러왔습니다:", data);
         setPostData(data.reverse());
         setError(null);
       })
@@ -80,20 +89,17 @@ const SectionOBinterview = () => {
                 }}
               >
                 <ProfileCard
+                  id={post.id}
                   name={post.name}
                   studentId={post.studentId}
-                  message={post.message}
-                  imageUrl={post.imageUrl}
-                  email={post.email}
-                  style={
-                    isMobile ? { fontSize: "clamp(0.8rem, 2vw, 1rem)" } : {}
-                  }
+                  introduction={post.introduction}
+                  imagePath={post.imagePath}
                 />
               </div>
             );
           })
         ) : (
-          <p>로딩 중...</p>
+          <p>데이터가 없습니다</p>
         )}
       </div>
 

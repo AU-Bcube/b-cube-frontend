@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <main className="overflow-x-hidden">
-        <section className="flex flex-col justify-center items-center p-[24px] md:p-0 w-full md:max-w-[1280px] md:mx-auto h-[100vh]">
+        <section className="flex flex-col justify-center items-center md:p-5 w-full md:max-w-[1280px] md:mx-auto h-[100vh]">
           <div className="mt-[64px] md:mt-0 flex justify-center items-center w-full h-auto gap-2.5">
             <h1
               className="flex items-center justify-center w-full font-bold text-center text-[40px] leading-[50px] md:text-[80px] md:leading-[110px] bg-clip-text text-transparent"
@@ -50,7 +50,7 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="flex flex-col justify-center items-center mt-[192px] md:mt-[228px] px-[28px] md:px-0 w-full md:w-[1280px] mx-auto">
+        <section className="flex flex-col justify-center items-center md:p-5 w-full md:max-w-[1280px] md:mx-auto">
           <Article subject="Introduction" title="소개" />
           <div className="flex flex-col md:flex-row justify-start md:justify-between items-center md:items-start mt-8 md:mt-20 gap-4 md:gap-16">
             <p className="text-center md:text-left text-[16px] md:text-2xl font-bold text-[#f6f6f7] md:w-1/5">

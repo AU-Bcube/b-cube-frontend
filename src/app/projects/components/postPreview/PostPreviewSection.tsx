@@ -10,7 +10,6 @@ interface PostPreviewSectionProps {
   title: string;
   desc: string;
   postsData: any[];
-  setPostsData: React.Dispatch<React.SetStateAction<any[]>>;
 }
 
 const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({
@@ -37,19 +36,19 @@ const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({
           {postsData
             .slice(0, visiblePosts)
             .map((item, index) =>
-              item.pdfUrl ? (
+              item.pdfPath ? (
                 <PostPreviewBoxWithPdf
                   key={index}
-                  image={item.imageUrl}
+                  image={item.imagePath}
                   year={item.year}
                   title={item.title}
-                  participants={item.participants}
-                  pdfUrl={item.pdfUrl}
+                  participants={item.participant}
+                  pdfUrl={item.pdfPath}
                 />
               ) : (
                 <PostPreviewBox
                   key={index}
-                  image={item.imageUrl}
+                  image={item.imagePath}
                   year={item.year}
                   title={item.title}
                   participants={item.participants}

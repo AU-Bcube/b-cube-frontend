@@ -3,7 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
 import localFont from "next/font/local"; // ⬅️ add
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 const pretendard = localFont({ // ⬅️ add
   src: "../styles/font/PretendardVariable.woff2",
   display: "swap",
@@ -34,6 +36,7 @@ export default function RootLayout({
   const initialMobileState = false; // 기본값 설정
 
   return (
+    
     <html lang="en" className={`${pretendard.variable}`}>
       <body className="font-pretendard">
         {/* 고정된 배경색 */}
@@ -71,5 +74,6 @@ export default function RootLayout({
         </ClientWrapper>
       </body>
     </html>
+    
   );
 }

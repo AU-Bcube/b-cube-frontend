@@ -3,7 +3,7 @@ import ProjectDescription from "./ProjectDescription";
 import Image from "next/image";
 import PhotoWithTitleBox from "./postPreview/PhotoWithTitleBox";
 import ActivityButton from "@/components/activityButton";
-import fetchPosts from "@/functions/fetchPosts";
+import fetchPosts from "@/features/fetchPosts";
 import MobileButton from "@/mobileComponents/mobileButton";
 import useStore from "@/stores/useStore";
 
@@ -15,7 +15,7 @@ const SectionSexyIt = () => {
   const { isMobile } = useStore();
 
   useEffect(() => {
-    fetchPosts("/api/activities/sexyit", setPostsData, setError, true);
+    fetchPosts("/sexyit", setPostsData, setError, true);
   }, []);
 
   // "더보기" 버튼 클릭 시 6개의 포스트 추가로 표시
@@ -69,7 +69,7 @@ const SectionSexyIt = () => {
         />
       </div>
       <section className="flex flex-col justify-center items-center w-full gap-16 relative pb-[120px] sm:mt-[160px] mt-[64px]">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-x-[32px] sm:gap-y-[64px] gap-[32px] p-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-[32px] sm:gap-y-[64px] gap-[32px] p-4 w-full">
           {postsData
             .slice(0, Math.floor(visiblePosts / 3) * 3)
             .map((card, index) => (
@@ -77,7 +77,7 @@ const SectionSexyIt = () => {
                 key={index}
                 title={card.title}
                 date={card.date}
-                imageSrc={card.imageUrl}
+                imageSrc={card.imagePath}
                 link={card.url}
               />
             ))}
@@ -91,7 +91,7 @@ const SectionSexyIt = () => {
               key={postsData[visiblePosts - 1] + 1}
               title={postsData[visiblePosts - 1].title}
               date={postsData[visiblePosts - 1].date}
-              imageSrc={postsData[visiblePosts - 1].imageUrl}
+              imageSrc={postsData[visiblePosts - 1].imagePath}
               link={postsData[visiblePosts - 1].url}
             />
           ) : (
@@ -105,7 +105,7 @@ const SectionSexyIt = () => {
                   key={index}
                   title={card.title}
                   date={card.date}
-                  imageSrc={card.imageUrl}
+                  imageSrc={card.imagePath}
                   link={card.url}
                 />
               ))

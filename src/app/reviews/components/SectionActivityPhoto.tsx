@@ -9,7 +9,7 @@ interface ImageItem {
   date: string;
   description: string;
   id: number;
-  imageUrl: string;
+  imagePath: string;
 }
 
 const SectionActivityPhoto = () => {
@@ -21,13 +21,13 @@ const SectionActivityPhoto = () => {
     const fetchImages = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_HOST}/api/activity-photos`
+          `${process.env.NEXT_PUBLIC_API_HOST}/photo`
         );
   
         if (!response.ok) {
           throw new Error("이미지 데이터를 불러오는데 실패했습니다.");
         }
-  
+        // console.log(response);
         const data: ImageItem[] = await response.json(); // data 타입 지정
         let sortedData: ImageItem[] = [];
   
@@ -173,7 +173,7 @@ const SectionActivityPhoto = () => {
                     }}
                   >
                     <Image
-                        src={image.imageUrl}
+                        src={image.imagePath}
                         layout="fill" // 부모 요소를 꽉 채우도록 설정
                         objectFit="cover" // 영역을 모두 채우기 위해 cover 사용
                         objectPosition="center" // 이미지를 중앙에 맞춤
@@ -249,7 +249,7 @@ const SectionActivityPhoto = () => {
               onClick={() => setCurrentIndex(index)}
             >
               <Image
-                src={image.imageUrl}
+                src={image.imagePath}
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"

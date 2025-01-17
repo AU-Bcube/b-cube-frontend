@@ -6,6 +6,7 @@ import MobileNavigation from "@/mobileComponents/mobileNavigation";
 import MobileFooter from "@/mobileComponents/mobileFooter";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 interface ClientWrapperProps {
   children: React.ReactNode;
@@ -19,7 +20,7 @@ export default function ClientWrapper({
   const isMobile = useStore((state) => state.isMobile);
   const setMobileState = useStore((state) => state.setMobileState);
   const checkMobile = useStore((state) => state.checkMobile);
-
+  const queryClient = new QueryClient();
   useEffect(() => {
     // 서버에서 받은 모바일 여부 상태를 초기 상태로 설정
     setMobileState(initialMobileState);
@@ -36,11 +37,11 @@ export default function ClientWrapper({
   }, [initialMobileState, setMobileState, checkMobile]);
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       {/* 모바일 여부에 따라 네비게이션 및 푸터를 조건부로 렌더링 */}
       {isMobile ? <MobileNavigation /> : <Navigation />}
       {children}
       {isMobile ? <MobileFooter /> : <Footer />}
-    </>
+    </QueryClientProvider>
   );
 }

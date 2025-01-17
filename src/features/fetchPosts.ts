@@ -10,6 +10,7 @@ const fetchPosts = async (requestUrl: string, setPostsData: SetPostsData, setErr
       return response.json();
     })
     .then((data: any[]) => {
+      console.log("데이터를 성공적으로 불러왔습니다:", data);
       setPostsData(reverse ? data.reverse() : data);
       setError(null);
     })

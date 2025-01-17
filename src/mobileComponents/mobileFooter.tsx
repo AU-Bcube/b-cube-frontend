@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import email_logo from "../../public/email_logo.svg";
 import insta_logo from "../../public/insta_logo.svg";
 import github_logo from "../../public/github_logo.svg";
 import kakaoTalk_logo from "../../public/kakaoTalk_logo.svg";

@@ -3,6 +3,7 @@
 import MobileActivityCard from "./MobileActivityCard";
 import HomePdfViewer from "./HomePdfViewer";  // PDF 모달 컴포넌트 import
 import { useEffect, useState } from "react";
+import { useFetchActivites } from "@/hooks/queries";
 
 // 활동 데이터 타입 정의
 interface MobileActivity {
@@ -14,46 +15,9 @@ interface MobileActivity {
 }
 
 export default function MobileActivity() {
-  const [isFetching, setIsFetching] = useState(false);
-  const [activeCards, setActiveCards] = useState<MobileActivity[]>([]);
-  const [error, setError] = useState<string | null>(null);
   const [selectedPdf, setSelectedPdf] = useState<{ pdfUrl: string; title: string } | null>(null);
 
-  useEffect(() => {
-    const fetchActivity = async () => {
-      setIsFetching(true);
-      setError(null);
-
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/api/main-activity`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json;charset=UTF-8',
-            'Accept': 'application/json',
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-
-        const resData = await response.json();
-        setActiveCards(resData || []);
-
-      } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError('Unknown error occurred');
-        }
-      } finally {
-        setIsFetching(false);
-      }
-    };
-
-    fetchActivity();
-  }, []);
-
+  const {data: activities, isLoading, isError} = useFetchActivites()
   const handleOpenPdf = (pdfUrl: string, title: string) => {
     setSelectedPdf({ pdfUrl, title });
   };
@@ -62,20 +26,20 @@ export default function MobileActivity() {
     setSelectedPdf(null);
   };
 
-  if (error) {
-    return <div className="text-red-500">데이터 불러오기 실패: {error}</div>;
+  if (isError) {
+    return <div className="text-red-500">데이터 불러오기 실패: {isError}</div>;
   }
 
   return (
     <div>
-      {isFetching ? (
+      {isLoading ? (
         <div>로딩 중입니다...</div>
-      ) : activeCards.length === 0 ? (
+      ) : activities.length === 0 ? (
         <div>활동 데이터가 없습니다.</div>
       ) : (
         <MobileActivityCard
-          activity={activeCards}
-          isLoading={isFetching}
+          activity={activities}
+          isLoading={isLoading}
           onOpenPdf={handleOpenPdf}  // PDF 열기 핸들러 전달
         />
       )}

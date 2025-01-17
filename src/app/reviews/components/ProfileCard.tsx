@@ -7,61 +7,34 @@ import Email_logo3 from "../../../../public/email_logo3.svg";
 import useStore from "@/stores/useStore";
 
 interface ProfileCardProps {
+  id: number;
   name: string;
   studentId: string;
-  message: string;
-  imageUrl: string;
-  email: string;
-  style?: React.CSSProperties;
+  introduction: string;
+  imagePath: string;
 }
 
 const ProfileCard: React.FC<ProfileCardProps> = ({
   name,
   studentId,
-  message,
-  imageUrl,
-  email,
-  style,
+  introduction,
+  imagePath,
 }) => {
   const [isLongText, setIsLongText] = useState(false);
   const { isMobile } = useStore(); // 모바일 여부 확인
 
   useEffect(() => {
-    const messageLengthWithoutSpaces = message.replace(/\s/g, "").length;
-    setIsLongText(messageLengthWithoutSpaces > 10);
-  }, [message]);
+    const introductionLengthWithoutSpaces = introduction.replace(/\s/g, "").length;
+    setIsLongText(introductionLengthWithoutSpaces > 10);
+  }, [introduction]);
 
-  const copyEmailToClipboard = () => {
-    navigator.clipboard
-      .writeText(email)
-      .then(() => {
-        alert("이메일이 복사되었습니다.");
-      })
-      .catch((err) => {
-        console.error("이메일 복사 중 오류 발생:", err);
-      });
-  };
 
   return (
     <div
-      className="relative flex-grow-0 flex-shrink-0 rounded-[10px] bg-[#f6f6f7]/[0.04] flex flex-col items-center justify-between p-6"
-      style={{
-        border: "1px solid #518CFF",
-        width: isMobile ? "87vw" : "380px", // 모바일에서는 87vw, 데스크탑에서는 고정 380px
-        height: isMobile ? "calc(87vw * 1.23)" : "480px", // 모바일에서는 높이도 1.23배, 데스크탑은 480px
-        ...style, // 추가 스타일 적용
-      }}
+      className={"relative rounded-[10px] bg-[#f6f6f7]/[0.04] flex flex-col items-center justify-between p-10 border border-[#518CFF]" + (isMobile ? " w-full" : " w-[360px] h-[420px]")}
     >
-      <div className="rounded-full overflow-hidden">
-        <img
-          className="w-full h-full object-cover"
-          style={{
-            width: isMobile ? "30vw" : "180px", // 모바일에서는 87vw, 데스크탑에서는 100%로 설정
-            height: isMobile ? "30vw" : "180px", // 모바일에서는 87vw, 데스크탑에서는 100%로 설정
-          }}
-          src={imageUrl}
-          alt={`${name}의 프로필 이미지`}
-        />
+      <div className={"relative aspect-square rounded-full overflow-hidden" + (isMobile ? " w-[150px]" : " w-[150px]")}>
+        <Image src={imagePath} alt={name} fill objectFit="cover"/>
       </div>
 
       <p className="text-2xl font-semibold text-center text-[#f6f6f7] mt-4">
@@ -88,20 +61,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         }`}
       >
         <p className="text-sm font-medium text-center text-[#f6f6f7]">
-          {message}
+          {introduction}
         </p>
-      </div>
-
-      {/* 이메일 아이콘 */}
-      <div className="mt-4">
-        <Image
-          src={Email_logo3}
-          alt="이메일 아이콘"
-          width={31}
-          height={30}
-          className="cursor-pointer"
-          onClick={copyEmailToClipboard} // 클릭 시 이메일 복사
-        />
       </div>
     </div>
   );

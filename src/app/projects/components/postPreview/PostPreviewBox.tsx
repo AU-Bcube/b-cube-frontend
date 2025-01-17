@@ -51,11 +51,12 @@ const PostPreviewBox: React.FC<PostPreviewBoxProps> = ({
     <div>
       <div className="relative flex w-80 sm:w-96 flex-col rounded-xl border text-white shadow-md mx-2 my-2 bg-[#f6f6f7]/[0.04] border-[#518CFF]">
         <div className="p-4">
-          <div className="relative h-48 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
+          <div className="relative h-48 overflow-hidden rounded-xl bg-white ">
             <Image
+              className="p-4"
               src={image}
               alt={title}
-              layout="fill"
+              fill
               objectFit="cover"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none"; // 이미지가 로드되지 않으면 숨김

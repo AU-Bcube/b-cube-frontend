@@ -1,6 +1,13 @@
 module.exports = {
-    images: {
-      domains: ['bcubeweb.shop', 'objectstorage.ap-chuncheon-1.oraclecloud.com', "axsqxeygavsg.compat.objectstorage.ap-chuncheon-1.oraclecloud.com", "github.io"], // 여기에 외부 이미지 도메인을 추가
-    },
-  }
-  
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'b-cube-web.s3.ap-northeast-2.amazonaws.com',
+        port: '',
+        pathname: '/b-cube-web/**',
+      },
+    ],
+  },
+}
+//허용하는 이미지 경로 설정
