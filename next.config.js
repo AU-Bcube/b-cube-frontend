@@ -1,4 +1,8 @@
 module.exports = {
+  output: 'export',
+  compiler: {
+    removeConsole: true,
+  },
   images: {
     remotePatterns: [
       {
