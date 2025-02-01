@@ -3,10 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
 import localFont from "next/font/local"; // ⬅️ add
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-const queryClient = new QueryClient();
 const pretendard = localFont({ // ⬅️ add
   src: "../styles/font/PretendardVariable.woff2",
   display: "swap",
@@ -17,12 +15,15 @@ const pretendard = localFont({ // ⬅️ add
 export const metadata: Metadata = {
   title: "B-cube",
   description: "아주대학교 경영인텔리전스학과 소학회",
-  metadataBase: new URL("https://b-cube-three.vercel.app/"),
+  icons: {
+    icon: "/logo.svg"
+  },
+  metadataBase: new URL("https://b-cube-frontend.vercel.app"),
   openGraph: {
     title: "B-cube",
     description: "아주대학교 경영인텔리전스학과 소학회",
     images: "/opengraph-image.png",
-    url: "https://b-cube-three.vercel.app",
+    url: "https://b-cube-frontend.vercel.app/",
     siteName: "B-cube",
     locale: "ko_KR",
     type: "website",
@@ -72,6 +73,7 @@ export default function RootLayout({
 
         <ClientWrapper initialMobileState={initialMobileState}>
           {children}
+          <SpeedInsights />
         </ClientWrapper>
       </body>
     </html>

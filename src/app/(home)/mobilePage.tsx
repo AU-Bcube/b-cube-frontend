@@ -1,7 +1,5 @@
-import Activity from "./components/Activity";
 import Article from "@/components/Article";
 import Executives from "./components/Executives";
-// import CenterMode from "./components/ActivityCard";
 import MobileActivity from "./components/MobileActivity";
 
 export default function Home() {
