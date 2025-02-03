@@ -19,24 +19,24 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.svg"
   },
-  metadataBase: new URL("https://b-cube-frontend.vercel.app"),
+  metadataBase: new URL("https://b-cube.kr"),
   openGraph: {
     title: "B-cube",
     description: "아주대학교 경영인텔리전스학과 소학회",
     images: "/opengraph-image.png",
-    url: "https://b-cube-frontend.vercel.app/",
+    url: "https://b-cube.kr",
     siteName: "B-cube",
     locale: "ko_KR",
     type: "website",
   },
+  other: {
+    "naver-site-verification": "faeee0c5c10843f8a1f21c3ef305b36b5c7ac22b"
+  }
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`${pretendard.variable}`}>
-      <head>
-        <meta name="naver-site-verification" content="faeee0c5c10843f8a1f21c3ef305b36b5c7ac22b" />
-      </head>
       <body className="font-pretendard">
         <div
           style={{
