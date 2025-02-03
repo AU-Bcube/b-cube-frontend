@@ -24,7 +24,7 @@ const ProjectSections: React.FC<ProjectSectionsProps> = ({ designthon, sexyIt, s
         {menuButtons}
       </section>
       {projects.map((item, index) => (
-        <div className={selectedIndex === index ? "block" : "hidden"}>
+        <div key={index} className={selectedIndex === index ? "block" : "hidden"}>
           {item.component}
         </div>
       ))}

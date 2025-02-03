@@ -4,6 +4,7 @@ import MobileCarousel from "./MobileSlider";  // 모바일 캐러셀 컴포넌�
 import './MobileCarousel.css';
 import HomePdfViewer from "./HomePdfViewer";
 import { useState } from "react";
+import Image from "next/image";
 
 interface MobileActivity {
   id: number;
@@ -40,9 +41,10 @@ export default function MobileActivityCard({
             key={item.id}
             onClick={() => handleOpenPdf(item.pdfPath, item.title)} // 클릭 시 PDF 열기
           >
-            <img
+            <Image
               src={item.imagePath}
               alt={item.title}
+              fill
               className="mobile__item-img"
             />
             <p className="mobile-description-overlay">

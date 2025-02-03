@@ -4,6 +4,7 @@ import { useState } from "react";
 import InfiniteLoopSlider from "./InfiniteLoopSlider";
 import './Slider.css';
 import HomePdfViewer from "./HomePdfViewer";
+import Image from "next/image";
 
 interface Activity {
   id: number;
@@ -36,9 +37,10 @@ export default function ActivityCard({
         <InfiniteLoopSlider onHoverStop={true}>
           {activity.map((item) => (
             <div key={item.id} className="InfiniteLoop__item" onClick={() => handleOpenPdf(item.pdfPath, item.title)}>
-              <img
+              <Image
                 src={item.imagePath}
                 alt={item.title}
+                fill
                 className="InfiniteLoop__item-img"
               />
               <h5 className="description-overlay">
