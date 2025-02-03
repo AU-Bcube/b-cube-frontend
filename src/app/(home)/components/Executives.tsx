@@ -14,7 +14,7 @@ interface Executive {
 export default async function Executives() {
   const executives = await getExecutives();
   
-if (executives.length === 0) {
+  if (executives.length === 0) {
     return <p>회장단 정보가 없습니다.</p>;
   }
 

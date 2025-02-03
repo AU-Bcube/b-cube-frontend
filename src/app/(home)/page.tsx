@@ -6,9 +6,9 @@ export default function Main() {
 
   return (    
     <main className="overflow-x-hidden">
-      <div className="flex flex-col justify-center items-center md:p-5 w-full max-w-7xl relative px-8 md:px-12 md:mx-auto h-[92vh] md:min-h-[900px] min-h-[600px] max-h-[800px] md:max-h-[1200px]">
+      <div className="flex flex-col justify-center items-center md:p-5 w-full max-w-7xl relative md:px-12 md:mx-auto h-[92vh] md:min-h-[900px] min-h-[600px] max-h-[800px] md:max-h-[1200px]">
         <div className="flex flex-[5]"/>
-        <section className="flex justify-center items-center w-full h-auto">
+        <section className="flex justify-center items-center w-full h-auto px-8">
           <h1
             className="flex items-center justify-center w-full font-bold text-center text-[50px] leading-[65px] md:text-[100px] md:leading-[130px] bg-clip-text text-transparent"
             style={{
@@ -27,7 +27,7 @@ export default function Main() {
         </section>
         <div className="flex flex-[5]"/>
         <h2
-          className="flex items-center justify-center w-full font-semibold text-xl md:text-[36px] md:leading-[40px] text-center"
+          className="flex items-center justify-center w-full font-semibold text-xl md:text-[36px] md:leading-[40px] text-center px-2"
           style={{
             backgroundImage:
               "linear-gradient(90deg, #A8B3D8 37.39%, #518CFF 61.51%)",
@@ -38,7 +38,7 @@ export default function Main() {
           아주대학교 경영인텔리전스학과 소학회
         </h2>
         <div className="flex flex-[1]"/>
-        <p className="w-full flex flex-col items-center text-center text-sm md:text-[22px] leading-[20px] md:leading-[40px] text-[#DEE5FF] font-medium">
+        <p className="w-full flex flex-col items-center text-center text-sm md:text-[22px] leading-[20px] md:leading-[40px] text-[#DEE5FF] font-medium px-8">
           <span>
             B-CUBE는 최신 IT 기술을 배우는 것 뿐 아니라 이를 통한 Business
             Application을 구축해
