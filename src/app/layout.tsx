@@ -34,6 +34,9 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`${pretendard.variable}`}>
+      <head>
+        <meta name="naver-site-verification" content="faeee0c5c10843f8a1f21c3ef305b36b5c7ac22b" />
+      </head>
       <body className="font-pretendard">
         <div
           style={{
