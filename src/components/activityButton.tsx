@@ -17,7 +17,7 @@ export default function ActivityButton({
           : "bg-[#7380b0]/5 border border-[#191f35] text-[#7380b0]"}`}
       onClick={onClick}
     >
-      <p className="text-sm md:text-lg font-semibold text-center">
+      <p className="text-sm md:text-lg font-semibold text-center whitespace-nowrap">
         {activity}
       </p>
     </button>

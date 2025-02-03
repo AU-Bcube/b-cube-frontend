@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local"; // ⬅️ add
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { headers } from "next/headers";
-import MobileNavigation from "@/mobileComponents/mobileNavigation";
-import MobileFooter from "@/mobileComponents/mobileFooter";
-import Navigation from "@/components/webNavigation";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 
@@ -35,8 +31,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
-  const userAgent = headers().get("user-agent") || "";
-  const isMobile = /Mobile|Android|iPhone/i.test(userAgent);
   return (
     <html lang="en" className={`${pretendard.variable}`}>
       <body className="font-pretendard">
@@ -48,10 +42,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             zIndex: -1,
             pointerEvents: "none",
             backgroundImage: 'url("/addLayout.svg")',
-            backgroundSize: "cover", // 비율을 유지하며 화면을 덮음
+            backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
-            opacity: 0.8,
           }}
         />
           <Header />
