@@ -31,9 +31,9 @@ if (executives.length === 0) {
   }
 
   return (
-    <div className="mt-[32px] md:mt-[48px] flex justify-center items-center flex-col md:flex-row flex-wrap w-full gap-[64px] md:gap-[128px]">
+    <ul className="mt-[32px] md:mt-[48px] flex justify-center items-center flex-col md:flex-row flex-wrap w-full gap-[64px] md:gap-[128px]">
       {currentExecutive.map((executive: Executive) => (
-        <div
+        <li
           key={executive.id}
           className="flex flex-col justify-start items-center relative gap-6"
         >
@@ -45,18 +45,16 @@ if (executives.length === 0) {
               className="object-cover"
             />
           </div>
-          <p className="text-center flex flex-col items-center gap-2 text-[#F6F6F7] font-semibold">
-            <span className="text-[18px] md:text-[20px] leading-[24px]">
+          <div className="text-center flex flex-col items-center gap-2 text-[#F6F6F7] font-semibold">
+            <h5 className="text-[18px] md:text-[20px] leading-[24px]">
               {executive.role}
-            </span>
-            <span className="text-[16px] md:text-[18px] leading-[20px] md:leading-[30px]">
-              {executive.studentId}
-              <br />
-              {executive.name}
-            </span>
-          </p>
-        </div>
+            </h5>
+            <h6 className="text-[16px] md:text-[18px] leading-[20px] md:leading-[30px]">
+              {executive.studentId}&nbsp;{executive.name}
+            </h6>
+          </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

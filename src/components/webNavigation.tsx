@@ -6,7 +6,7 @@ import BCUBE from "../../public/BCUBE.svg";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-export default function Navigation() {
+export default function WebNavigation() {
   const pathname = usePathname();
 
   const linkStyle = (href: string) =>
@@ -15,7 +15,7 @@ export default function Navigation() {
       : "font-Pretendard-Bold text-[#4f5d8d]";
 
   return (
-    <div className="relative z-50 flex flex-col w-full bg-[#06132D] px-16 py-4">
+    <div className="relative z-50 lg:mx-auto lg:max-w-screen-xl bg-[#06132D] px-6 py-4">
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row items-center gap-4">
           <Link href="/">

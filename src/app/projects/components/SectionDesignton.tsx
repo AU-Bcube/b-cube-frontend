@@ -1,42 +1,21 @@
-import React, { useEffect, useState } from "react";
+import { ProjectProps } from "../../../../new-types";
 import PostPreviewSection from "./postPreview/PostPreviewSection";
-import PostPreviewSectionWithPdf from "./postPreview/PostPreviewSectionWithPdf";
-import fetchPosts from "@/features/fetchPosts";
-import { useFetchDesignton } from "@/hooks/queries";
-
-// interface PostData {
-//   // Define the structure of your post data here
-//   id: number;
-//   year: number;
-//   title: string;
-//   participants: string;
-//   imageUrl: string;
-//   pdfUrl: string;
-// }
-
-const SectionDesignton = () => {
-
-  const {data: designton, isLoading, isError} = useFetchDesignton()
 
 
-  if (isLoading) {
-    return <div>로딩 중입니다...</div>;
-  }
+interface SectionProps {
+  data: ProjectProps[];
+}
 
-  // 에러 처리
-  if (isError) {
-    return <div>데이터 불러오기 실패: {isError}</div>;
-  }
-  
+const SectionDesignton: React.FC<SectionProps> = ({ data }) => {
+
+
   return (
-    <div className="flex flex-col justify-center items-center w-full max-w-full sm:max-w-[1280px] sm:mx-auto mx-auto overflow-hidden sm:px-6 lg:px-8">
-      <div className="flex flex-row justify-between items-center w-full max-w-full sm:max-w-[1040px] sm:mt-[160px] mt-[64px] overflow-hidden px-6">
+    <div className="flex flex-col justify-center items-center max-w-[1280px] mx-auto overflow-hidden md:px-12 px-8">
       <PostPreviewSection
         title="디자인톤"
         desc="팀 별로 아이디어를 기획하고 구체화하여 앱 서비스를 기획하는 활동"
-        postsData={designton}
+        postsData={data}
       />
-      </div>
     </div>
   );
 };

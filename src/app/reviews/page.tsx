@@ -1,22 +1,14 @@
-"use client";
 
-import React, { useEffect } from "react";
-import WebPage from "./webPage";
-import MobilePage from "./mobilePage";
-import useStore from "@/stores/useStore";
+import { getInterview } from "@/api/interview";
+import ReviewSection from "./components/reviewSection";
+import { getPhoto } from "@/api/photo";
 
-export default function Main() {
-  const isMobile = useStore((state) => state.isMobile);
-  const checkMobile = useStore((state) => state.checkMobile);
+export default async function Main() {
+  
+  const interviews = await getInterview();
+  const photos = await getPhoto();
 
-  useEffect(() => {
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, [checkMobile]);
-
-  return <>{isMobile ? <MobilePage /> : <WebPage />} </>;
+  return (
+    <ReviewSection interviews={interviews} photos={photos}/>
+  );
 }

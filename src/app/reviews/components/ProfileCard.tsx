@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Haksamo from "../../../../public/haksamo.svg";
 import Email_logo3 from "../../../../public/email_logo3.svg";
-import useStore from "@/stores/useStore";
+import useStore from "@/stores/mobileStore";
 
 interface ProfileCardProps {
   id: number;
@@ -20,28 +20,21 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   introduction,
   imagePath,
 }) => {
-  const [isLongText, setIsLongText] = useState(false);
-  const { isMobile } = useStore(); // 모바일 여부 확인
-
-  useEffect(() => {
-    const introductionLengthWithoutSpaces = introduction.replace(/\s/g, "").length;
-    setIsLongText(introductionLengthWithoutSpaces > 10);
-  }, [introduction]);
-
 
   return (
     <div
-      className={"relative rounded-[10px] bg-[#f6f6f7]/[0.04] flex flex-col items-center justify-between p-10 border border-[#518CFF]" + (isMobile ? " w-full" : " w-[360px] h-[420px]")}
+      className={"flex w-full rounded-[20px] bg-gradient-to-r from-[#7380B0] to-[#518CFF] p-px max-w-[360px]"}
     >
-      <div className={"relative aspect-square rounded-full overflow-hidden" + (isMobile ? " w-[150px]" : " w-[150px]")}>
+      <div className="flex flex-col w-full items-center bg-[#101C35] md:p-8 p-8 gap-1 rounded-[20px] h-full">
+      <div className={"relative aspect-square rounded-full overflow-hidden md:w-[180px] w-[150px]"}>
         <Image src={imagePath} alt={name} fill objectFit="cover"/>
       </div>
 
-      <p className="text-2xl font-semibold text-center text-[#f6f6f7] mt-4">
+      <p className="text-2xl font-semibold text-center text-[#f6f6f7] mt-6">
         {name}
       </p>
 
-      <div className="flex items-center gap-2 mt-2">
+      <div className="flex items-center gap-1 pr-[2px]">
         <Image
           src={Haksamo}
           alt="학번 아이콘"
@@ -56,13 +49,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 
       {/* 메시지 */}
       <div
-        className={`px-6 py-4 rounded-full bg-[#ebeef6]/20 mt-4 ${
-          isLongText ? "max-w-[280px] w-full" : "w-fit"
-        }`}
+        className={`px-6 py-4 mt-4 rounded-full bg-[#ebeef6]/20`}
       >
         <p className="text-sm font-medium text-center text-[#f6f6f7]">
           {introduction}
         </p>
+      </div>
       </div>
     </div>
   );

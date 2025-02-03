@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useStore from "@/stores/useStore";
+import useStore from "@/stores/mobileStore";
 
 interface CardProps {
   title?: string;

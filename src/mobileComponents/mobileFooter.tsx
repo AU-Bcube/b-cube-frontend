@@ -4,7 +4,7 @@ import github_logo from "../../public/github_logo.svg";
 import kakaoTalk_logo from "../../public/kakaoTalk_logo.svg";
 import Image from "next/image";
 
-export default function Footer() {
+export default function MobileFooter() {
   return (
     <div className="flex flex-col justify-center items-start w-full h-[294px] relative gap-6 px-7 py-16 bg-[#06132d]">
       <p className="flex-grow-0 flex-shrink-0 text-[28px] leading-[30px] font-bold text-center text-white">

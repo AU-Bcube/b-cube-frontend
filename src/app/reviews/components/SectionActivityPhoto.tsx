@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import activityPhotoNextArrow from "../../../../public/activityPhotoNextArrow.svg";
 import activityPhotoPrevArrow from "../../../../public/activityPhotoPrevArrow.svg";
 import Image from "next/image";
-import useStore from "@/stores/useStore";
 import { reverse } from "dns";
+import mobileStore from "@/stores/mobileStore";
 
 interface ImageItem {
   date: string;
@@ -12,38 +12,15 @@ interface ImageItem {
   imagePath: string;
 }
 
-const SectionActivityPhoto = () => {
-  const [images, setImages] = useState<any[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const { isMobile } = useStore();
+interface SectionActivityPhotoProps {
+  images: ImageItem[];
+}
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_HOST}/photo`
-        );
-  
-        if (!response.ok) {
-          throw new Error("이미지 데이터를 불러오는데 실패했습니다.");
-        }
-        // console.log(response);
-        const data: ImageItem[] = await response.json(); // data 타입 지정
-        let sortedData: ImageItem[] = [];
-  
-        data.forEach((item: ImageItem) => { // item 타입 지정
-          sortedData.unshift(item);
-        });
-  
-        console.log(sortedData);
-        setImages(sortedData);
-      } catch (error) {
-        console.error("API 호출 오류:", error);
-      }
-    };
-  
-    fetchImages();
-  }, []);
+const SectionActivityPhoto:React.FC<SectionActivityPhotoProps> = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const { isMobile } = mobileStore();
+
+
   
 
   // 다음 이미지로 넘어가는 함수
@@ -66,7 +43,7 @@ const SectionActivityPhoto = () => {
     <div
       style={{
         position: "relative",
-        paddingTop: isMobile ? "40px" : "60px",
+        paddingTop: isMobile ? "20px" : "40px",
         color: "white",
         marginTop: "60px",
         height: isMobile ? "490px" : "700px", // 모바일에서 높이 조정
@@ -177,7 +154,7 @@ const SectionActivityPhoto = () => {
                         layout="fill" // 부모 요소를 꽉 채우도록 설정
                         objectFit="cover" // 영역을 모두 채우기 위해 cover 사용
                         objectPosition="center" // 이미지를 중앙에 맞춤
-                        alt={image.alt}
+                        alt={image.description}
                       />
                     
                   </div>
@@ -253,7 +230,7 @@ const SectionActivityPhoto = () => {
                 layout="fill"
                 objectFit="cover"
                 objectPosition="center"
-                alt={image.alt}
+                alt={image.description}
               />
             </div>
           ))}

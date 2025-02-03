@@ -3,49 +3,28 @@ import Image from "next/image";
 interface ContactItemProps {
   title: string;
   value: string;
-  color1: string;
-  color2: string;
-  style?: React.CSSProperties;
   svg: any;
 }
 
 export default function ContactItem({
   title,
   value,
-  color1,
-  color2,
   svg,
-  style = {},
 }: ContactItemProps) {
   return (
-    <div
-      className="flex flex-col justify-start items-center h-[253px] w-full md:w-60 gap-6 px-20 py-12 rounded-[20px] bg-[#f6f6f7]/[0.04] border border-[#f6f6f7]/[0.1] max-w-[100%] md:max-w-[60px]"
-      style={{
-        border: "1px solid #518CFF",
-        ...style,
-      }}
-    >
-      <div
-        className="flex-grow-0 flex-shrink-0 w-[82px] h-[82px] relative"
-        style={{
-          background: `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`,
-          borderRadius: "50%",
-        }}
-      >
-        <Image src={svg} alt={`${title} logo`} />
-      </div>
-      <div className="flex flex-col justify-start items-center gap-2">
-        <p
-          className="text-[16px] font-bold text-center"
-          style={{
-            background: "linear-gradient(90deg, #7281B3 0%, #518CFF 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          {title}
-        </p>
-        <p className="text-[17px] font-semibold text-center text-[#f6f6f7]">
+    <div className="flex w-full rounded-[20px] bg-gradient-to-r from-[#7380B0] to-[#518CFF] p-px">
+      <div className="flex md:flex-col flex-row w-full items-center justify-between bg-[#101C35] gap-2 md:p-10 p-8 px-6 rounded-[20px] h-full">
+        <div className="flex md:flex-col flex-row items-center md:gap-6 gap-4">
+          <div
+            className="md:w-[82px] w-[30px] aspect-square"
+          >
+            <Image src={svg} alt={`${title} logo`} />
+          </div>
+          <h6 className="text-[16px] font-bold text-center bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
+            {title}
+          </h6>
+        </div>
+        <p className="md:text-lg text-sm font-semibold text-center text-[#f6f6f7]">
           {value}
         </p>
       </div>

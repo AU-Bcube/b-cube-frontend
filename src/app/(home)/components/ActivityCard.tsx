@@ -1,6 +1,9 @@
+"use client";
+
 import { useState } from "react";
 import InfiniteLoopSlider from "./InfiniteLoopSlider";
 import './Slider.css';
+import HomePdfViewer from "./HomePdfViewer";
 
 interface Activity {
   id: number;
@@ -11,49 +14,47 @@ interface Activity {
 }
 
 interface ActivityCardProps {
-  isLoading: boolean;
-  loadingText?: string;
   activity: Activity[];
-  onOpenPdf: (pdfUrl: string, title: string) => void;  // PDF 열기 핸들러 추가
-  className?: string;
 }
 
 export default function ActivityCard({
-  isLoading,
-  loadingText = "로딩 중...",
   activity,
-  onOpenPdf,
-  className = "",
 }: ActivityCardProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [selectedPdf, setSelectedPdf] = useState<{ pdfUrl: string; title: string } | null>(null);
 
-  if (isLoading) {
-    return <p>{loadingText}</p>;
-  }
+  const handleOpenPdf = (pdfUrl: string, title: string) => {
+    setSelectedPdf({ pdfUrl, title });
+  };
 
-  if (activity.length === 0) {
-    return <p>활동 데이터가 없습니다.</p>;
-  }
+  const handleClosePdf = () => {
+    setSelectedPdf(null);
+  };
+
 
   return (
     <section className='activity-card-wrapper'>
-      <div>
         <InfiniteLoopSlider onHoverStop={true}>
           {activity.map((item) => (
-            <div key={item.id} className="InfiniteLoop__item" onClick={() => onOpenPdf(item.pdfPath, item.title)}>
+            <div key={item.id} className="InfiniteLoop__item" onClick={() => handleOpenPdf(item.pdfPath, item.title)}>
               <img
                 src={item.imagePath}
                 alt={item.title}
                 className="InfiniteLoop__item-img"
               />
-              <p className="description-overlay">
+              <h5 className="description-overlay">
                 {item.description} <br />
                 {item.title}
-              </p>
+              </h5>
             </div>
           ))}
         </InfiniteLoopSlider>
-      </div>
+      {selectedPdf && (
+        <HomePdfViewer
+          pdfUrl={selectedPdf.pdfUrl}
+          title={selectedPdf.title}
+          onClose={handleClosePdf}  // PDF 모달 닫기 핸들러
+        />
+      )}
     </section>
   );
 }

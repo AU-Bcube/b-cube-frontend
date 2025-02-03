@@ -11,14 +11,13 @@ export default function ActivityButton({
 }: ActivityButtonProps) {
   return (
     <button
-      className={`flex justify-center items-center sm:px-8 sm:py-3 px-8 py-4 rounded-[100px] ${
+      className={`flex justify-center items-center md:px-8 md:py-4 px-5 py-3 rounded-[100px] ${
         selected
           ? "text-[#14439f] bg-white"
-          : "bg-[#7380b0]/5 border border-[#191f35] text-[#7380b0]"
-      } w-auto min-w-[100px] sm:min-w-[80px] whitespace-nowrap`}
+          : "bg-[#7380b0]/5 border border-[#191f35] text-[#7380b0]"}`}
       onClick={onClick}
     >
-      <p className="text-xl sm:text-lg text-md font-semibold text-center whitespace-nowrap">
+      <p className="text-sm md:text-lg font-semibold text-center">
         {activity}
       </p>
     </button>

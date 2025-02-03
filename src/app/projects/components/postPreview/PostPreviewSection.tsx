@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import ProjectDescription from "../ProjectDescription";
-import PostPreviewBox from "./PostPreviewBox";
 import PostPreviewBoxWithPdf from "./PostPreviewBoxWithPdf";
 import ActivityButton from "@/components/activityButton";
-import MobileButton from "@/mobileComponents/mobileButton"; // MobileButton 컴포넌트 임포트
-import useStore from "@/stores/useStore";
 
 interface PostPreviewSectionProps {
   title: string;
@@ -17,64 +14,41 @@ const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({
   desc,
   postsData,
 }) => {
-  const [selectedActivity, setSelectedActivity] = useState<string>("더보기");
   const [visiblePosts, setVisiblePosts] = useState<number>(6); // 처음에는 6개의 포스트만 표시
-  const { isMobile } = useStore(); // zustand store에서 isMobile 상태 가져오기
 
-  // "더보기" 버튼 클릭 시 6개의 포스트를 추가로 표시
   const loadMorePosts = () => {
     setVisiblePosts((prevVisiblePosts) => prevVisiblePosts + 6);
   };
 
   return (
-    <div className="flex flex-col justify-start items-start w-full max-w-screen-2xl mx-auto relative gap-12 sm:gap-20">
+    <div className="flex flex-col justify-start items-start w-full mx-auto max-w-screen-lg md:gap-20 gap-10">
       <ProjectDescription title={title}>
         {desc}
       </ProjectDescription>
-      <section className="flex flex-col justify-center items-center w-full gap-8 sm:gap-16 relative pb-20 sm:pb-[120px]">
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-16 py-4 sm:py-6">
-          {postsData
-            .slice(0, visiblePosts)
-            .map((item, index) =>
-              item.pdfPath ? (
-                <PostPreviewBoxWithPdf
-                  key={index}
-                  image={item.imagePath}
-                  year={item.year}
-                  title={item.title}
-                  participants={item.participant}
-                  pdfUrl={item.pdfPath}
-                />
-              ) : (
-                <PostPreviewBox
-                  key={index}
-                  image={item.imagePath}
-                  year={item.year}
-                  title={item.title}
-                  participants={item.participants}
-                  url={item.url}
-                />
-              )
-            )}
+      <section className="flex flex-col w-full">
+        <div className="grid md:grid-cols-2 w-full gap-6 md:gap-12 auto-rows-fr">
+          {postsData.slice(0, visiblePosts).map((item, index) => (
+            <PostPreviewBoxWithPdf
+              key={index}
+              image={item.imagePath}
+              year={item.year}
+              title={item.title}
+              participants={item.participant}
+              pdfUrl={item.pdfPath}
+            />
+          ))}
         </div>
-
         {/* isMobile에 따라 MobileButton 또는 ActivityButton 렌더링 */}
-        {visiblePosts < postsData.length && (
-          isMobile ? (
-            <MobileButton
-              activity="더보기"
-              selected={selectedActivity === "더보기"}
-              onClick={loadMorePosts}
-            />
-          ) : (
-            <ActivityButton
-              activity="더보기"
-              selected={selectedActivity === "더보기"}
-              onClick={loadMorePosts}
-            />
-          )
-        )}
       </section>
+      <div className="flex justify-center items-center w-full md:mb-20 mb-10">
+        {visiblePosts < postsData.length && (
+          <ActivityButton
+            activity="더보기"
+            selected={true}
+            onClick={loadMorePosts}
+          />
+        )}
+      </div>
     </div>
   );
 };

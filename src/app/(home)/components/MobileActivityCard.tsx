@@ -1,5 +1,9 @@
+"use client";
+
 import MobileCarousel from "./MobileSlider";  // 모바일 캐러셀 컴포넌트
 import './MobileCarousel.css';
+import HomePdfViewer from "./HomePdfViewer";
+import { useState } from "react";
 
 interface MobileActivity {
   id: number;
@@ -10,27 +14,22 @@ interface MobileActivity {
 }
 
 interface MobileActivityCardProps {
-  isLoading: boolean;
-  loadingText?: string;
   activity: MobileActivity[];
-  onOpenPdf: (pdfUrl: string, title: string) => void;  // PDF 열기 핸들러
-  className?: string;
 }
 
 export default function MobileActivityCard({
-  isLoading,
-  loadingText = "로딩 중...",
   activity,
-  onOpenPdf,
-  className = "",
 }: MobileActivityCardProps) {
-  if (isLoading) {
-    return <p>{loadingText}</p>;
-  }
+  const [selectedPdf, setSelectedPdf] = useState<{ pdfUrl: string; title: string } | null>(null);
 
-  if (activity.length === 0) {
-    return <p>활동 데이터가 없습니다.</p>;
-  }
+  const handleOpenPdf = (pdfUrl: string, title: string) => {
+    setSelectedPdf({ pdfUrl, title });
+  };
+
+  const handleClosePdf = () => {
+    setSelectedPdf(null);
+  };
+
 
   return (
     <section className='mobile-carousel-wrapper'>
@@ -39,7 +38,7 @@ export default function MobileActivityCard({
           <div
             className="mobile-carousel-item"
             key={item.id}
-            onClick={() => onOpenPdf(item.pdfPath, item.title)} // 클릭 시 PDF 열기
+            onClick={() => handleOpenPdf(item.pdfPath, item.title)} // 클릭 시 PDF 열기
           >
             <img
               src={item.imagePath}
@@ -53,6 +52,13 @@ export default function MobileActivityCard({
           </div>
         ))}
       </MobileCarousel>
+      {selectedPdf && (
+        <HomePdfViewer
+          pdfUrl={selectedPdf.pdfUrl}
+          title={selectedPdf.title}
+          onClose={handleClosePdf}  // PDF 닫기 핸들러
+        />
+      )}
     </section>
   );
 }

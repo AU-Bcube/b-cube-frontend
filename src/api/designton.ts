@@ -2,7 +2,9 @@ import { api } from "./api"
 
 const getDesignton = async () => {
   const response = await api.get('/designton');
+  console.log(response.data);
   return response.data;
+  
 }
 
 const addDesignton = async (activity: any) => {

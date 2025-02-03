@@ -27,35 +27,25 @@ const PostPreviewBoxWithPdf: React.FC<PostPreviewBoxWithPdfProps> = ({
   const closeModal = () => setIsOpen(false);
 
   return (
-    <div>
+    <div className="flex">
       <div
         onClick={openModal}
-        className="relative flex w-80 sm:w-96 flex-col rounded-xl border text-white shadow-md mx-2 my-2 bg-[#f6f6f7]/[0.04] border-[#518CFF] cursor-pointer"
+        className="flex w-full text-white rounded-[12px] bg-gradient-to-r from-[#7380B0] to-[#518CFF] p-px cursor-pointer"
       >
-        <div className="p-4">
-          <div className="relative h-48 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
+        <div className="flex flex-col w-full justify-start items-start bg-[#101C35] p-5 rounded-[12px]">
+          <div className="relative aspect-video w-full overflow-hidden rounded-[12px]">
             <Image
               src={image}
               alt={title}
-              layout="fill"
+              fill
               objectFit="cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = "none"; // 이미지가 로드되지 않으면 숨김
-                (
-                  e.target as HTMLImageElement
-                ).parentElement!.style.backgroundColor = "lightgray"; // 숨기고 배경색 지정
-              }}
             />
           </div>
           <p className="mt-4">{year}</p>
           <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased truncate my-1">
             {title}
           </h5>
-          {participants ? (
-            <p className="my-1 text-gray-400">{participants}</p>
-          ) : (
-            <p className="my-1 text-gray-400"> </p>
-          )}
+          {participants && <p className="my-1 text-gray-400">{participants}</p>}
         </div>
       </div>
 
@@ -64,9 +54,9 @@ const PostPreviewBoxWithPdf: React.FC<PostPreviewBoxWithPdfProps> = ({
           {/* 배경을 클릭하면 모달 닫힘 */}
           <div className="absolute inset-0 bg-black opacity-20" onClick={closeModal}></div>
           {/* 모달 내용 */}
-          <div className="relative w-full max-w-7xl p-8 bg-white rounded-lg my-4 mx-4 sm:my-8 sm:mx-8">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold text-black">{title}</h3>
+          <div className="relative w-full max-w-7xl md:px-8 px-6 md:py-6 py-4 bg-white rounded-lg my-4 mx-4 sm:my-8 sm:mx-8">
+            <div className="flex justify-between items-center md:mb-4 mb-2">
+              <h3 className="md:text-lg text-sm font-semibold text-black">{title}</h3>
               <button
                 onClick={closeModal}
                 className="text-black text-lg font-bold"

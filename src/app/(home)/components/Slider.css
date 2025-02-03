@@ -11,6 +11,10 @@
   animation: loop 30s linear infinite;
 }
 
+.InfiniteLoop__inner.paused {
+  animation-play-state: paused;
+}
+
 .InfiniteLoop__item {
   display: flex;
   justify-content: center;
