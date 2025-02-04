@@ -10,7 +10,7 @@ export default function BigCard({ title, content }: CardProps) {
         <h3 className="text-[20px] md:text-[22px] font-bold text-left text-[#f6f6f7] md:min-w-[317px]">{title}</h3>
         <ol className="flex flex-col gap-3">
           {content.map((item, index) => (
-            <li className='md:text-base text-sm md:leading-7 leading-6' key={index}>{item}</li>
+            <li className='text-[#f6f6f7] md:text-base text-sm md:leading-7 leading-6' key={index}>{item}</li>
           )
           )}
         </ol>
