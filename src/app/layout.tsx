@@ -14,11 +14,12 @@ const pretendard = localFont({ // ⬅️ add
 });
 
 export const metadata: Metadata = {
-  title: "B-cube",
+  title: "B-cube 비큐브",
   description: "아주대학교 경영인텔리전스학과 소학회",
   icons: {
     icon: "/logo.svg"
   },
+  keywords: ["B-cube", "비큐브", "아주대학교", "경영인텔리전스학과", "소학회", "이비즈", "e-비즈니스학과", "e-business", "IT기획", "웹개발", "앱개발", "백엔드", "프론트엔드", "피그마"],
   metadataBase: new URL("https://b-cube.kr"),
   openGraph: {
     title: "B-cube",
