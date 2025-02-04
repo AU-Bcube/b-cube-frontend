@@ -43,15 +43,15 @@ const SectionOBinterview: React.FC<SectionOBinterviewProps> = ({ postData }) => 
         })}
       </div>
       {/* "더보기" 버튼을 프로필 카드 아래에 배치 */}
-      {visibleCount < postData.length && (
-        <section className="flex justify-center items-center w-full md:mb-20 mb-10">
+      <section className="flex justify-center items-center w-full md:mb-20 mb-10">
+        {visibleCount < postData.length && (
           <ActivityButton
             activity="더보기"
             selected={true}
             onClick={handleLoadMore}
           />
-        </section>
-      )}
+        )}
+      </section>
     </div>
   );
 };
