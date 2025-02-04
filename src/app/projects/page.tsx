@@ -1,11 +1,19 @@
-import AsyncComponent from "./components/asyncComponent";
+import { getDesignton } from "@/api";
+import { getSexyIt } from "@/api/sexyIt";
+import { getStudy } from "@/api/study";
+import { getEtc } from "@/api/etc";
+import ProjectSections from "./components/ProjectSections";
 
-export default function Main() {
+export default async function Main() {
   
+  const designthon = await getDesignton();
+  const sexyIt = await getSexyIt();
+  const study = await getStudy();
+  const etc = await getEtc();
+
   return (
     <main>
-      <AsyncComponent/>
+      <ProjectSections designthon={designthon} etc={etc} sexyIt={sexyIt} study={study} />
     </main>
   );
 };
-
