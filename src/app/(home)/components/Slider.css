@@ -1,5 +1,5 @@
 .activity-card-wrapper {
-  width: 100vw;
+  width: calc(100vw - 8px);
   overflow: hidden;
   padding-top: 80px;
   padding-bottom: 80px;

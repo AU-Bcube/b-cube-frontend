@@ -9,7 +9,7 @@ export default function Article({ subject, title }: ArticleProps): JSX.Element {
       <h3 className="font-semibold text-[14px] md:text-[20px] bg-gradient-to-r from-[#7380B0] to-[#518CFF] bg-clip-text text-transparent">
         {subject}
       </h3>
-      <h2 className="font-bold text-[20px] md:text-[40px] text-[#F6F6F7] mt-[8px]">
+      <h2 className="font-bold text-[22px] md:text-[40px] text-[#F6F6F7] mt-[8px]">
         {title}
       </h2>
     </div>

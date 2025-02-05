@@ -46,7 +46,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             height: "100vh",
             zIndex: -1,
             pointerEvents: "none",
-            backgroundImage: 'url("/addLayout.svg")',
+            background: "linear-gradient(180deg, #06132D 65%, #14439F 145%)",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
