@@ -3,6 +3,7 @@
 import Article from "@/components/Article";
 import BigCard from "./bigCard";
 import { useMenuList } from "@/hooks/useMenuList";
+import FadeUpContainer from "@/app/(home)/components/FadeUpContainer";
 
 export default function ActivitySection() {
   const menuList = ["디자인톤", "섹시한 IT", "기타"];
@@ -45,33 +46,39 @@ export default function ActivitySection() {
 
   return (
     <div className="flex flex-col w-full justify-center items-center">
-      <section className="flex flex-col justify-center items-center">
-        <Article subject="Activity" title="활동 분야" />
-        {menuButtons}
-      </section>
+      <FadeUpContainer>
+        <section className="flex flex-col justify-center items-center">
+          <Article subject="Activity" title="활동 분야" />
+          {menuButtons}
+        </section>
+      </FadeUpContainer>
       <section className="flex flex-col w-full md:gap-16 gap-8">
-        <BigCard
-          title="다음과 같은 활동을 합니다"
-          content={selectedIndex === 0 ? 
-            designthonContent 
-            : 
-            selectedIndex === 1 ? 
-            sexyITContent 
-            : 
-            othersContent
-          }
-        />
-        <BigCard
-          title="이런 멤버를 찾습니다"
-          content={selectedIndex === 0?
-            designthonMember
-            :
-            selectedIndex === 1 ?
-            sexyITMember
-            :
-            othersMember
-          }
-        />
+        <FadeUpContainer delay={1}>
+          <BigCard
+            title="다음과 같은 활동을 합니다"
+            content={selectedIndex === 0 ? 
+              designthonContent 
+              : 
+              selectedIndex === 1 ? 
+              sexyITContent 
+              : 
+              othersContent
+            }
+          />
+        </FadeUpContainer>
+        <FadeUpContainer delay={2}>
+          <BigCard
+            title="이런 멤버를 찾습니다"
+            content={selectedIndex === 0?
+              designthonMember
+              :
+              selectedIndex === 1 ?
+              sexyITMember
+              :
+              othersMember
+            }
+          />
+        </FadeUpContainer>
       </section>
     </div>
   );

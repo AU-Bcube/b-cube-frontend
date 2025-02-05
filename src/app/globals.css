@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #06132D, #091b41 100%);
+  
+}
+
+/* 스크롤바 손잡이 꾸미기 */
+::-webkit-scrollbar-thumb {
+  background: #1f283d;
+}
+
+/* 스크롤바 손잡이 호버 시 색 */
+::-webkit-scrollbar-thumb:hover {
+  background: #293552;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
