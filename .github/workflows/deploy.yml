@@ -16,7 +16,7 @@ jobs:
         run: ls -al
       - name: reate .env file
         run: |
-          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" > .env.local
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_HOST }}" > .env.local
           echo "DOCKER_REGISTRY=${{ secrets.DOCKER_USERNAME }}" > .env.local
           echo "DOCKER_APP_NAME=${{ secrets.DOCKER_APP_NAME }}" > .env.local
           echo "DOCKER_IMAGE_TAG=latest" > .env.local
