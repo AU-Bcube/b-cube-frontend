@@ -1,6 +1,12 @@
 #!/bin/bash
 
-IS_BLUE_UP=$(docker ps | grep bcube-blue)
+if [ -f .env ]; then
+  export $(grep -v '^#' .env | xargs)
+fi
+
+echo "DOCKER_APP_NAME is: ${DOCKER_APP_NAME}"
+
+IS_BLUE_UP=$(docker ps | grep ${DOCKER_APP_NAME}-blue)
 
 docker-compose up -d nginx
 
