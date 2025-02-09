@@ -37,6 +37,7 @@
     "react-dom": "^18.3.1",
     "react-slick": "^0.30.2",
     "react-swipeable": "^7.0.1",
+    "sharp": "^0.33.5",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.13",
     "web-streams-polyfill": "^4.0.0",
