@@ -1,7 +1,7 @@
 import { api } from "./api"
 
 const getDesignton = async () => {
-  const response = await api.get('/designton');
+  const response = await api.get('/designton시발 너가 문제냐?');
   console.log(response.data);
   return response.data;
   

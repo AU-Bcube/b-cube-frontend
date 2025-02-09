@@ -14,7 +14,7 @@ jobs:
         
       - name: Check files in GitHub Actions runner
         run: ls -al
-      - name: reate .env file
+      - name: create .env file
         run: |
           echo NEXT_PUBLIC_API_HOST=${{ secrets.NEXT_PUBLIC_API_HOST }} > .env.local
           echo DOCKER_REGISTRY=${{ secrets.DOCKER_USERNAME }} > .env.local
