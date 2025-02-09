@@ -8,7 +8,7 @@ export default function Main() {
 
   return (    
     <main>
-      {/* <div className="flex flex-col justify-center items-center md:p-5 w-full max-w-7xl relative md:px-12 md:mx-auto h-screen min-h-[650px] md:min-h-[1080px]">
+      <div className="flex flex-col justify-center items-center md:p-5 w-full max-w-7xl relative md:px-12 md:mx-auto h-screen min-h-[650px] md:min-h-[1080px]">
         <div className="flex flex-[3]"/>
         <h1
           className="flex items-center justify-center w-full font-bold text-center text-[50px] leading-[65px]  md:text-[100px] md:leading-[130px] bg-clip-text text-transparent"
@@ -47,7 +47,7 @@ export default function Main() {
           </div>
         
         <div className="flex flex-[4]"/>
-      </div> */}
+      </div>
       
       <section className="flex flex-col md:mt-20 mt-2">
           <div className="flex flex-col justify-center items-center md:p-5 w-full max-w-7xl mx-auto relative px-8 md:px-12">
