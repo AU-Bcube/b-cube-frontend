@@ -56,3 +56,4 @@ jobs:
           script: |
             cd ${{ vars.DEPLOY_PATH }}
             ./deploy.sh
+            
