@@ -21,8 +21,8 @@ jobs:
           echo DOCKER_IMAGE_TAG=latest >> .env
 
       - 
-        name: Debug .env.local
-        run: cat .env.local
+        name: Debug .env
+        run: cat .env
 
       - 
         name: Check files in GitHub Actions runner
