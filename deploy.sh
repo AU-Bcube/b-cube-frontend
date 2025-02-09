@@ -23,6 +23,7 @@ if [ "$IS_BLUE_UP" ]; then
 
   docker-compose pull green
   docker-compose up -d green
+
   while [ 1 = 1 ]; do
     sleep 2
     REQUEST=$(docker exec nginx curl http://green:3000)
@@ -64,5 +65,8 @@ else
   echo "Stop green"
   docker-compose stop green
 fi
+
+echo "🗑️ Removing unused images..."
+docker image prune -f
 
 echo "Deploy finished"
