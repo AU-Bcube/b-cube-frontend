@@ -1,0 +1,37 @@
+# infra/docker-compose.yml
+version: '3'
+
+services:
+  nginx:
+    image: nginx:1.25.0-alpine
+    container_name: nginx
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      # - /etc/letsencrypt/:/etc/letsencrypt/
+      - ./logs/nginx/:/var/log/nginx/
+      - ./nginx/:/etc/nginx/conf.d/
+    environment:
+      - TZ=Asia/Seoul
+  blue:
+    image: ${DOCKER_REGISTRY}/${DOCKER_APP_NAME}:${DOCKER_IMAGE_TAG}
+    container_name: ${DOCKER_APP_NAME}-blue
+    restart: always
+    expose:
+      - 3000
+    # ports:
+    #   - '3000:3000'
+    environment:
+      - TZ=Asia/Seoul
+  green:
+    image: ${DOCKER_REGISTRY}/${DOCKER_APP_NAME}:${DOCKER_IMAGE_TAG}
+    container_name: ${DOCKER_APP_NAME}-green
+    restart: always
+    expose:
+      - 3000
+    # ports:
+    # - '3000:3000'
+    environment:
+      - TZ=Asia/Seoul
