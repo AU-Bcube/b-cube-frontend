@@ -12,6 +12,15 @@ docker-compose up -d nginx
 
 if [ "$IS_BLUE_UP" ]; then
   echo "Blue is up, deploying green"
+  docker-compose stop green
+  docker-compose rm -f green
+
+  echo "Removing old green image"
+  OLD_GREEN_IMAGE=$(docker images | grep "${DOCKER_APP_NAME}" | grep green | awk '{print $3}')
+  if [ -n "$OLD_GREEN_IMAGE" ]; then
+    docker rmi -f "$OLD_GREEN_IMAGE"
+  fi
+
   docker-compose pull green
   docker-compose up -d green
   while [ 1 = 1 ]; do
@@ -29,8 +38,18 @@ if [ "$IS_BLUE_UP" ]; then
   docker-compose stop blue
 else
   echo "Green is up, deploying blue"
+  docker-compose stop blue
+  docker-compose rm -f blue
+
+  echo "🗑️ Removing old blue image"
+  OLD_BLUE_IMAGE=$(docker images | grep "${DOCKER_APP_NAME}" | grep blue | awk '{print $3}')
+  if [ -n "$OLD_BLUE_IMAGE" ]; then
+    docker rmi -f "$OLD_BLUE_IMAGE"
+  fi
+
   docker-compose pull blue
   docker-compose up -d blue
+
   while [ 1 = 1 ]; do
     sleep 2
     REQUEST=$(docker exec nginx curl http://blue:3000)
