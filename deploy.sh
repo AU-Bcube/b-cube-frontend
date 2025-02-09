@@ -1,14 +1,6 @@
 #!/bin/bash
 
-source .env
-echo $DOCKER_APP_NAME
-
-if [ ! -f .env ]; then
-  echo "🚨 .env 파일이 없습니다. 배포를 중단합니다."
-  exit 1
-fi
-
-IS_BLUE_UP=$(docker ps | grep ${DOCKER_APP_NAME}-blue)
+IS_BLUE_UP=$(docker ps | grep bcube-blue)
 
 docker-compose up -d nginx
 
