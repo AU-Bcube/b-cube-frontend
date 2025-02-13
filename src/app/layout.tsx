@@ -3,6 +3,7 @@ import "./globals.css";
 import localFont from "next/font/local"; // ⬅️ add
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import Script from "next/script";
 
 const pretendard = localFont({ // ⬅️ add
   src: "../styles/font/PretendardVariable.woff2",
@@ -39,6 +40,17 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`${pretendard.variable}`}>
+      <head>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-16CC2DB93Q"></Script>
+      <Script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-16CC2DB93Q');
+        `}  
+      </Script>
+      </head>
       <body className="font-pretendard">
         <div
           style={{
