@@ -41,7 +41,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`${pretendard.variable}`}>
       <head>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-16CC2DB93Q"></Script>
+      <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-16CC2DB93Q"
+      />
       <Script>
         {`
           window.dataLayer = window.dataLayer || [];
