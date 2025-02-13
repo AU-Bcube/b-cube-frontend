@@ -32,7 +32,10 @@ export const metadata: Metadata = {
   },
   other: {
     "naver-site-verification": "faeee0c5c10843f8a1f21c3ef305b36b5c7ac22b"
-  }
+  },
+  alternates: {
+    canonical: 'https://b-cube.kr',
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
