@@ -8,7 +8,7 @@ import Link from "next/link";
 import Article from "@/components/Article";
 import MainBanner from "@/components/MainBanner";
 import ActivitySection from "./components/activitySection";
-import { getContact } from "@/api/contact";
+import { getContact } from "@/api";
 import FadeUpContainer from "../(home)/components/FadeUpContainer";
 
 export default async function Recruit() {

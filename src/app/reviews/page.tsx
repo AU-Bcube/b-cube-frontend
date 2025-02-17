@@ -1,7 +1,6 @@
 
-import { getInterview } from "@/api/interview";
+import { getInterview, getPhoto } from "@/api";
 import ReviewSection from "./components/reviewSection";
-import { getPhoto } from "@/api/photo";
 
 export default async function Main() {
   
