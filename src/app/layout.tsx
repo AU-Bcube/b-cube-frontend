@@ -4,6 +4,8 @@ import localFont from "next/font/local"; // ⬅️ add
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Script from "next/script";
+import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const pretendard = localFont({ // ⬅️ add
   src: "../styles/font/PretendardVariable.woff2",
@@ -40,25 +42,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`${pretendard.variable}`}>
-      <head>
-        <Script
-          async
-          src={`https://www.googletagmanager.com/gtag/js
-          ?id=G-16CC2DB93Q`} 
-        />
-        <Script
-          id="google-analytics"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-16CC2DB93Q');
-            `,
-          }}
-        />
-      </head>
+      <GoogleAnalytics gaId="G-16CC2DB93Q"/>
       <body className="font-pretendard">
         <div
           style={{
