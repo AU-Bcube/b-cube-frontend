@@ -62,36 +62,8 @@ const SectionSexyIt: React.FC<SectionProps> = ({ postsData }) => {
                 imageSrc={card.imagePath}
                 link={card.url}
               />
-            ))}
-          {visiblePosts % 3 === 1 && (
-            <div className="hidden lg:block">
-              <PhotoWithTitleBox key={"dummy"} />
-            </div>
-          )}
-          {visiblePosts % 3 === 1 ? (
-            <PhotoWithTitleBox
-              key={postsData[visiblePosts - 1].id + 1}
-              title={postsData[visiblePosts - 1].title}
-              date={postsData[visiblePosts - 1].date}
-              imageSrc={postsData[visiblePosts - 1].imagePath}
-              link={postsData[visiblePosts - 1].url}
-            />
-          ) : (
-            postsData
-              .slice(
-                Math.floor(visiblePosts / 3) * 3,
-                Math.floor(visiblePosts / 3) * 3 + (visiblePosts % 3)
-              )
-              .map((card, index) => (
-                <PhotoWithTitleBox
-                  key={index}
-                  title={card.title}
-                  date={card.date}
-                  imageSrc={card.imagePath}
-                  link={card.url}
-                />
-              ))
-          )}
+            ))
+          }
         </div>
       </section>
       <div className="flex justify-center items-center w-full md:mb-20 mb-10">
