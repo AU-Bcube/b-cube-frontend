@@ -5,6 +5,7 @@ interface PostPreviewBoxWithPdfProps {
   image: string;
   year: string;
   title: string;
+  award?: string;
   participants: string;
   pdfUrl?: string;
 }
@@ -13,6 +14,7 @@ const PostPreviewBoxWithPdf: React.FC<PostPreviewBoxWithPdfProps> = ({
   image,
   year,
   title,
+  award,
   participants,
   pdfUrl,
 }) => {
@@ -38,14 +40,18 @@ const PostPreviewBoxWithPdf: React.FC<PostPreviewBoxWithPdfProps> = ({
               src={image}
               alt={title}
               fill
-              objectFit="cover"
+              style={{ objectFit: "cover", objectPosition: "center" }} 
             />
           </div>
           <p className="mt-4">{year}</p>
-          <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased truncate my-1">
+          <h5 className="text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased truncate my-1">
             {title}
           </h5>
           {participants && <p className="my-1 text-gray-400">{participants}</p>}
+          {award &&
+          <h5 className="text-base text-white my-1">
+            🏆 {award}
+          </h5>}
         </div>
       </div>
 

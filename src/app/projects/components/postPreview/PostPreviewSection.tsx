@@ -35,6 +35,7 @@ const PostPreviewSection: React.FC<PostPreviewSectionProps> = ({
               title={item.title}
               participants={item.participant}
               pdfUrl={item.pdfPath}
+              award={item.award}
             />
           ))}
         </div>

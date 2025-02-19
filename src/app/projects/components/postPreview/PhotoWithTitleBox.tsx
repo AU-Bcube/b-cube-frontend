@@ -31,8 +31,7 @@ const PhotoWithTitleBox: React.FC<CardProps> = ({
             src={imageSrc}
             alt={title}
             fill
-            objectFit="cover"
-            objectPosition="center"
+            style={{ objectFit: "cover", objectPosition: "center" }} 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-blue-800 via-blue-800/50 to-transparent" />
           <div className="p-4 absolute bottom-1 left-4 text-white">
