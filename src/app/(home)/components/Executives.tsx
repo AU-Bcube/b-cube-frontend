@@ -14,7 +14,6 @@ interface Executive {
 
 export default async function Executives() {
   const executives = await getExecutives();
-  
   if (executives.length === 0) {
     return <p>회장단 정보가 없습니다.</p>;
   }
@@ -22,9 +21,9 @@ export default async function Executives() {
 
   const thisYear = new Date().getFullYear();
   console.log(thisYear);
-  const currentExecutive = executives.filter(
-    (executive: Executive) => executive.year == thisYear
-  );
+  const currentExecutive = executives
+  .filter((executive: Executive) => executive.year == thisYear)
+  .sort((a: Executive, b: Executive) => (a.role === "회장 " ? -1 : b.role === "회장 " ? 1: 0))
 
 
   if (currentExecutive.length === 0) {
@@ -34,7 +33,7 @@ export default async function Executives() {
   return (
     <ul className="mt-[32px] md:mt-[48px] flex justify-center items-center flex-col md:flex-row flex-wrap w-full gap-[64px] md:gap-[128px]">
       {currentExecutive.map((executive: Executive, index: number) => (
-        <FadeUpContainer key={executive.id} delay={index}>
+        <FadeUpContainer key={index} delay={index}>
           <li
             className="flex flex-col justify-start items-center relative gap-6"
           >
