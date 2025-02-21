@@ -23,7 +23,7 @@ export default async function Executives() {
   console.log(thisYear);
   const currentExecutive = executives
   .filter((executive: Executive) => executive.year == thisYear)
-  .sort((a: Executive, b: Executive) => (a.role === "회장 " ? -1 : b.role === "회장 " ? 1: 0))
+  .sort((a: Executive, b: Executive) => (a.role === "회장 " ? -1 : b.role === "회장 " ? 1: 0)) //회장이 먼저오게 정렬
 
 
   if (currentExecutive.length === 0) {
