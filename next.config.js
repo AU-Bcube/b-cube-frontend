@@ -1,8 +1,8 @@
 module.exports = {
   output: 'standalone',
-  // compiler: {
-  //   removeConsole: true,
-  // },
+  compiler: {
+    removeConsole: true,
+  },
   images: {
     remotePatterns: [
       {
