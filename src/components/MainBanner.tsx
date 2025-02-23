@@ -5,6 +5,8 @@ interface MobileBannerProps {
   bannerImage: string;
   altText: string;
   description?: string | JSX.Element;
+  buttonTitle?: string;
+  onClick?: () => void;
 }
 
 export default function MainBanner ({
@@ -12,6 +14,8 @@ export default function MainBanner ({
   bannerImage,
   altText,
   description,
+  buttonTitle,
+  onClick,
 }: MobileBannerProps) {
   return (
     <div className="flex w-full relative overflow-hidden h-52 max-w-7xl mx-auto md:min-h-[500px] md:h-[55vh]">
@@ -52,6 +56,16 @@ export default function MainBanner ({
           {description}
         </p>
         )}
+        {buttonTitle &&
+        <button
+          className={`flex justify-center items-center md:mt-6 mt-2 md:px-8 md:py-4 px-5 py-3 rounded-[100px] text-[#14439f] bg-white border border-white hover:bg-gray-300`}
+          onClick={onClick}
+        >
+          <p className="text-sm md:text-lg font-semibold text-center whitespace-nowrap">
+            {buttonTitle}
+          </p>
+        </button>
+        } 
       </div>
         
       {/* 그라데이션 적용 위치 */}

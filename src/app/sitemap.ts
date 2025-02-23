@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: 'https://b-cube.kr',
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'monthly',
       priority: 1,
     },
     {
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: 'https://b-cube.kr/reviews',
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'monthly',
       priority: 0.5,
     },
   ]

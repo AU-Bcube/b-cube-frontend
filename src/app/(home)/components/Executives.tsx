@@ -33,28 +33,28 @@ export default async function Executives() {
   return (
     <ul className="mt-[32px] md:mt-[48px] flex justify-center items-center flex-col md:flex-row flex-wrap w-full gap-[64px] md:gap-[128px]">
       {currentExecutive.map((executive: Executive, index: number) => (
-        <FadeUpContainer key={index} delay={index}>
-          <li
-            className="flex flex-col justify-start items-center relative gap-6"
-          >
-            <div className="w-[150px] h-[150px] md:w-[220px] md:h-[220px] rounded-full relative overflow-hidden">
-              <Image
-                src={executive.imagePath}
-                alt={`${executive.name}'s profile`}
-                fill
-                className="object-cover"
-              />
+        <li>
+          <FadeUpContainer key={index} delay={index}>
+            <div className="flex flex-col justify-start items-center relative gap-6">
+              <div className="w-[150px] h-[150px] md:w-[220px] md:h-[220px] rounded-full relative overflow-hidden">
+                <Image
+                  src={executive.imagePath}
+                  alt={`${executive.name}'s profile`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="text-center flex flex-col items-center gap-2 text-[#F6F6F7] font-semibold">
+                <h5 className="text-[18px] md:text-[20px] leading-[24px]">
+                  {executive.role}
+                </h5>
+                <h6 className="text-[16px] md:text-[18px] leading-[20px] md:leading-[30px]">
+                  {executive.studentId}&nbsp;{executive.name}
+                </h6>
+              </div>
             </div>
-            <div className="text-center flex flex-col items-center gap-2 text-[#F6F6F7] font-semibold">
-              <h5 className="text-[18px] md:text-[20px] leading-[24px]">
-                {executive.role}
-              </h5>
-              <h6 className="text-[16px] md:text-[18px] leading-[20px] md:leading-[30px]">
-                {executive.studentId}&nbsp;{executive.name}
-              </h6>
-            </div>
-          </li>
-        </FadeUpContainer>
+          </FadeUpContainer>
+        </li>
       ))}
     </ul>
   );

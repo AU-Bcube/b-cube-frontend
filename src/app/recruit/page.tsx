@@ -18,10 +18,11 @@ export default async function Recruit() {
   return (
     <main>
       <MainBanner
-        title={<>지금은 모집기간이 아닙니다</>}
+        title={<>모집이 예정되어 있습니다!</>}
         bannerImage={megaphone}
         altText="megaphone"
-        description={<>2024년 2학기 모집이 완료되었습니다!<br />다음 기수는 2025년 3월에 예정되어 있습니다</>}
+        description={<>📢 B-CUBE 2025년도 1학기 모집 📢<br />모집 기간: 3월 3일(월) ~ 3월 7일(금) 23:59분까지</>}
+        buttonTitle="모집 예정"
       />
       <div className="flex flex-col justify-center items-center w-full max-w-7xl mx-auto relative px-8 md:px-12">
         <section className="flex flex-col md:mb-80 mb-40 justify-center items-center">
@@ -34,13 +35,13 @@ export default async function Recruit() {
             <FadeUpContainer delay={1}>
               <Card
                 title="인재상"
-                content="최신 IT 기술과 비즈니스 이해를 바탕으로 창의적 문제 해결과 협업 능력을 갖춘 자기주도적 학습자"
+                content={<>최신 IT 기술과 비즈니스 이해를 바탕으로<br/>창의적 문제 해결과 협업 능력을 갖춘<br/>자기주도적 학습자</>}
               />
             </FadeUpContainer>
             <FadeUpContainer delay={2}>
               <Card
                 title="지원자격"
-                content="IT 기술과 비즈니스에 대한 관심과 열정을 가진 경영인텔리전스학과 학생이라면 누구나"
+                content={<>IT 기술과 비즈니스에 대한 관심과 열정을 가진<br/>경영인텔리전스학과 학생이라면 누구나</>}
               />
             </FadeUpContainer>
             <FadeUpContainer delay={3}>

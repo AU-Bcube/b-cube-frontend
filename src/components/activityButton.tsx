@@ -13,7 +13,7 @@ export default function ActivityButton({
     <button
       className={`flex justify-center items-center md:px-8 md:py-4 px-5 py-3 rounded-[100px] ${
         selected
-          ? "text-[#14439f] bg-white"
+          ? "text-[#14439f] bg-white border border-white"
           : "bg-[#7380b0]/5 border border-[#191f35] text-[#7380b0]"}`}
       onClick={onClick}
     >

@@ -69,6 +69,20 @@ export default function Main() {
               <FadeUpContainer delay={3}>
                 <Card title="📚 IT 스터디" content={<>java, javascript, python 등<br/>다양한 프로그래밍 스터디 진행</>}/>
               </FadeUpContainer>
+              {/* 디자인톤 */}
+              <FadeUpContainer delay={4}>
+                <Card title="🗣️ B-CUBE I TALK" content={<>IT 관련 지식과 트렌드를 공유하고<br/>데이터베이스화하여 체계적으로 축적하는<br/>온라인 지식 공유 활동</>}/>
+              </FadeUpContainer>
+
+              {/* 섹시한 IT */}
+              <FadeUpContainer delay={5}>
+                <Card title="🖥️ 웹사이트 기획 및 개발" content={<>기획팀, 디자인팀, 개발팀으로 나누어<br/>B-CUBE 웹사이트를 체계적으로 기획하고<br/>개발하며 지속적으로 발전시키는 활동</>}/>
+              </FadeUpContainer>
+
+              {/* 기타 IT 스터디 */}
+              <FadeUpContainer delay={6}>
+                <Card title="💡 신입생 아이디어톤" content={<>신입생끼리 서비스를 직접 기획해보고,<br/>문제 해결을 위한 창의적인 아이디어를 도출하며<br/>실전 기획 경험을 쌓는 프로젝트</>}/>
+              </FadeUpContainer>
             </div>
           </div>
         
