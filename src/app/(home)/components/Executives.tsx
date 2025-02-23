@@ -33,8 +33,8 @@ export default async function Executives() {
   return (
     <ul className="mt-[32px] md:mt-[48px] flex justify-center items-center flex-col md:flex-row flex-wrap w-full gap-[64px] md:gap-[128px]">
       {currentExecutive.map((executive: Executive, index: number) => (
-        <li>
-          <FadeUpContainer key={index} delay={index}>
+        <li key={index}>
+          <FadeUpContainer delay={index}>
             <div className="flex flex-col justify-start items-center relative gap-6">
               <div className="w-[150px] h-[150px] md:w-[220px] md:h-[220px] rounded-full relative overflow-hidden">
                 <Image
