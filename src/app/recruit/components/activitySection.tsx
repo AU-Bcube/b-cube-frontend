@@ -52,7 +52,7 @@ export default function ActivitySection() {
   ]
   const itStudy = [
     <>1. 프로그래밍 언어 스터디는 신입생 모집 후, 수요 조사 파악 후 진행</>,
-    <>2. 자율 스터디는 '인과추론' 으로 진행 예정</>,
+    <>2. 자율 스터디는 &lsquo;인과추론&rsquo; 으로 진행 예정</>,
     <>3. 학습 공동체 신청해서 지원</>
   ];
 
