@@ -21,8 +21,8 @@ export default async function Recruit() {
         title={<>모집이 예정되어 있습니다!</>}
         bannerImage={megaphone}
         altText="megaphone"
-        description={<>📢 B-CUBE 2025년도 1학기 모집 📢<br />모집 기간: 3월 3일(월) ~ 3월 7일(금) 23:59분까지</>}
-        buttonTitle="모집 예정"
+        description={<>📢 B-CUBE 2025년도 1학기 모집 📢<br />모집 기간: 3월 3일(월) ~ 3월 7일(금) 23:59</>}
+        button={true}
       />
       <div className="flex flex-col justify-center items-center w-full max-w-7xl mx-auto relative px-8 md:px-12">
         <section className="flex flex-col md:mb-80 mb-40 justify-center items-center">

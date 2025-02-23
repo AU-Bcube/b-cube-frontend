@@ -1,11 +1,12 @@
 import Image from "next/image";
+import RecruitButton from "./recruitButton";
 
 interface MobileBannerProps {
   title: string | JSX.Element;
   bannerImage: string;
   altText: string;
   description?: string | JSX.Element;
-  buttonTitle?: string;
+  button?: boolean
   onClick?: () => void;
 }
 
@@ -14,8 +15,7 @@ export default function MainBanner ({
   bannerImage,
   altText,
   description,
-  buttonTitle,
-  onClick,
+  button = false
 }: MobileBannerProps) {
   return (
     <div className="flex w-full relative overflow-hidden h-52 max-w-7xl mx-auto md:min-h-[500px] md:h-[55vh]">
@@ -56,15 +56,8 @@ export default function MainBanner ({
           {description}
         </p>
         )}
-        {buttonTitle &&
-        <button
-          className={`flex justify-center items-center md:mt-6 mt-2 md:px-8 md:py-4 px-5 py-3 rounded-[100px] text-[#14439f] bg-white border border-white hover:bg-gray-300`}
-          onClick={onClick}
-        >
-          <p className="text-sm md:text-lg font-semibold text-center whitespace-nowrap">
-            {buttonTitle}
-          </p>
-        </button>
+        {button &&
+        <RecruitButton/>
         } 
       </div>
         
