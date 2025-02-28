@@ -41,7 +41,7 @@ export default async function Recruit() {
             <FadeUpContainer delay={2}>
               <Card
                 title="지원자격"
-                content={<>IT 기술과 비즈니스에 대한 관심과 열정을 가진<br/>경영인텔리전스학과 학생이라면 누구나</>}
+                content={<>IT 기술과 비즈니스에 대한 관심과 열정을 가진<br/>아주대학교 학생이라면 누구나</>}
               />
             </FadeUpContainer>
             <FadeUpContainer delay={3}>
