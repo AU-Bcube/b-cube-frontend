@@ -18,7 +18,7 @@ export default async function Recruit() {
   return (
     <main>
       <MainBanner
-        title={<>모집이 예정되어 있습니다!</>}
+        title={<>모집 중입니다!</>}
         bannerImage={megaphone}
         altText="megaphone"
         description={<>📢 B-CUBE 2025년도 1학기 모집 📢<br />모집 기간: 3월 3일(월) ~ 3월 7일(금) 23:59</>}

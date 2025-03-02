@@ -27,7 +27,7 @@ export default function WebNavigation() {
         </div>
 
         <nav>
-          <ul className="flex flex-row gap-10">
+          <ul className="flex flex-row gap-10 items-center">
             <li>
               <Link href="/" className={linkStyle("/")}>
                 홈
@@ -46,6 +46,17 @@ export default function WebNavigation() {
             <li>
               <Link href="/recruit" className={linkStyle("/recruit")}>
                 리크루팅
+              </Link>
+            </li>
+            <li>
+              <Link
+                className={`text-[15px] flex justify-center items-center px-5 py-[10px] rounded-[100px] text-[#14439f] bg-white border border-white hover:bg-gray-300`}
+                href="https://walla.my/v/qUdsP3AlNnApNXXTr2km"
+                target="_blank"
+              >
+                <p className="font-semibold text-center whitespace-nowrap">
+                  지원하기
+                </p>
               </Link>
             </li>
           </ul>

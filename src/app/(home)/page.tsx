@@ -3,11 +3,23 @@ import Executives from "./components/Executives";
 import Activities from "./components/Activities";
 import FadeUpContainer from "./components/FadeUpContainer";
 import Card from "../recruit/components/card";
+import Link from "next/link";
 
 export default function Main() {
 
   return (    
     <main>
+      <div className="fixed bottom-12 left-1/2 transform -translate-x-1/2 z-50">
+        <Link
+          className={`flex justify-center items-center px-6 py-3 md:invisible rounded-[100px] text-[#14439f] bg-white border border-white hover:bg-gray-300`}
+          href="https://walla.my/v/qUdsP3AlNnApNXXTr2km"
+          target="_blank"
+        >
+          <p className="text-base font-semibold text-center whitespace-nowrap">
+            지원하기
+          </p>
+        </Link>
+      </div>
       <div className="flex flex-col justify-center items-center md:p-5 w-full max-w-7xl relative md:px-12 md:mx-auto h-screen min-h-[650px] md:min-h-[1080px]">
         <div className="flex flex-[3]"/>
         <h1
@@ -87,13 +99,10 @@ export default function Main() {
           </div>
         
       </section>
-      <FadeUpContainer>
-        <section className="flex flex-col md:mt-96 mt-40">
-          <Article subject="Project" title="프로젝트" />
-          <Activities/>
-        </section>
-      </FadeUpContainer>
-
+      <section className="flex flex-col md:mt-96 mt-40">
+        <Article subject="Project" title="프로젝트" />
+        <Activities/>
+      </section>
       <section className="flex flex-col justify-center items-center md:mt-96 md:mb-80 mt-40 mb-40">
         <FadeUpContainer>
           <div className="flex flex-col md:gap-8 gap-4">
