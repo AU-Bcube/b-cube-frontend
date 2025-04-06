@@ -48,7 +48,7 @@ export default function WebNavigation() {
                 리크루팅
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 className={`text-[15px] flex justify-center items-center px-5 py-[10px] rounded-[100px] text-[#14439f] bg-white border border-white hover:bg-gray-300`}
                 href="https://walla.my/v/qUdsP3AlNnApNXXTr2km"
@@ -58,7 +58,8 @@ export default function WebNavigation() {
                   지원하기
                 </p>
               </Link>
-            </li>
+            </li> */}
+            {/* 2학기때 링크만 바꾸기 */}
           </ul>
         </nav>
       </div>
