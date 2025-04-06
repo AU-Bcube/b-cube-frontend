@@ -59,7 +59,7 @@ export default function WebNavigation() {
                 </p>
               </Link>
             </li> */}
-            {/* 2학기때 링크만 바꾸기 */}
+            {/* 2학기때 링크만 바꾸기 {배포테스트} */}
           </ul>
         </nav>
       </div>
