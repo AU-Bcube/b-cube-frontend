@@ -4,10 +4,11 @@ import localFont from "next/font/local"; // ⬅️ add
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Script from "next/script";
-import { GoogleTagManager } from '@next/third-parties/google'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
-const pretendard = localFont({ // ⬅️ add
+const pretendard = localFont({
+  // ⬅️ add
   src: "../styles/font/PretendardVariable.woff2",
   display: "swap",
   weight: "45 920",
@@ -18,9 +19,27 @@ export const metadata: Metadata = {
   title: "비큐브 B-cube",
   description: "아주대학교 경영인텔리전스학과 소학회",
   icons: {
-    icon: "/logo.svg"
+    icon: "/logo.svg",
   },
-  keywords: ["B-cube", "비큐브", "아주대학교", "경영인텔리전스학과", "소학회", "이비즈", "e-비즈니스학과", "e-business", "IT기획", "웹개발", "앱개발", "백엔드", "프론트엔드", "피그마"],
+  keywords: [
+    "B-cube",
+    "bcube",
+    "비큐브",
+    "동아리",
+    "IT동아리",
+    "아주대학교",
+    "경영인텔리전스학과",
+    "소학회",
+    "이비즈",
+    "e-비즈니스학과",
+    "e-business",
+    "IT기획",
+    "웹개발",
+    "앱개발",
+    "백엔드",
+    "프론트엔드",
+    "피그마",
+  ],
   metadataBase: new URL("https://b-cube.kr"),
   openGraph: {
     title: "비큐브 B-cube",
@@ -32,17 +51,21 @@ export const metadata: Metadata = {
     type: "website",
   },
   other: {
-    "naver-site-verification": "faeee0c5c10843f8a1f21c3ef305b36b5c7ac22b"
+    "naver-site-verification": "faeee0c5c10843f8a1f21c3ef305b36b5c7ac22b",
   },
   alternates: {
-    canonical: 'https://b-cube.kr',
+    canonical: "https://b-cube.kr",
   },
 };
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={`${pretendard.variable}`}>
-      <GoogleAnalytics gaId="G-16CC2DB93Q"/>
+      <GoogleAnalytics gaId="G-16CC2DB93Q" />
       <body className="font-pretendard">
         <div
           style={{
@@ -57,11 +80,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             backgroundPosition: "center",
           }}
         />
-          <Header />
-          {children}
-          <Footer />
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
-    
   );
 }
