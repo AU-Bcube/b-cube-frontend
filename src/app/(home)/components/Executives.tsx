@@ -46,7 +46,7 @@ export default async function Executives() {
                   {executive.role}
                 </h5>
                 <h6 className="text-[16px] md:text-[18px] leading-[20px] md:leading-[30px]">
-                  {executive.studentId}&nbsp;{executive.name}
+                  {executive.studentId}학번&nbsp;{executive.name}
                 </h6>
               </div>
             </div>
