@@ -24,7 +24,7 @@ export default async function Recruit() {
           <>
             지금은 모집 기간이 아닙니다.
             <br />
-            다음 모집은 2025년 8월에 예정되어 있습니다.
+            다음 모집은 2026년 2월에 예정되어 있습니다.
           </>
         }
         button={false}
@@ -124,3 +124,4 @@ export default async function Recruit() {
     </main>
   );
 }
+
