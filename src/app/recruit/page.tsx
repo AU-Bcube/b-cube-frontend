@@ -17,7 +17,7 @@ export default async function Recruit() {
   return (
     <main>
       <MainBanner
-        title={<>모집아 종료되었습니다!</>}
+        title={<>모집이 종료되었습니다!</>}
         bannerImage={megaphone}
         altText="megaphone"
         description={
@@ -124,4 +124,5 @@ export default async function Recruit() {
     </main>
   );
 }
+
 
