@@ -173,7 +173,7 @@
 ---
 
 ### BE
-#### https://github.com/jinyoung1226/b-cube-backend
+#### https://github.com/AU-Bcube/b-cube-backend
 
 ```markdown
 ├─📂 java
