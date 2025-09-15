@@ -156,18 +156,17 @@
 └─📦 src
   ├─📂 api
   ├─📂 app
-  │  ├─📂 home
+  │  ├─📂 (home)
   │  ├─📂 blocked
   │  ├─📂 projects
   │  ├─📂 recruit
   │  ├─📂 reviews
+  │  ├─📜 layout.tsx
   ├─📂 components
   ├─📂 hooks
   ├─📂 mobileComponents
   ├─📂 stores
-  ├─📂 styles/font
-  ├─📂 websocket 
-  └─📜 App.js
+  └─📂 styles
 ```
 
 ---
