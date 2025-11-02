@@ -69,7 +69,7 @@ export default function RootLayout({
         {/* GenLLMS meta-loader: data-id/data-lang은 발급 값으로 교체 */}
         <Script
           id="genllms-meta-loader"
-          src="https://cdn.genaiollms.com/meta-loader.v1.js"
+          src="https://genaiollms.com/meta-loader.v1.js"
           strategy="beforeInteractive"
           data-id="partner_bcubekr_home"
           data-lang="ko"
@@ -80,7 +80,7 @@ export default function RootLayout({
         {/* GenLLMS embed: username/key/lang은 발급 값으로 교체 */}
         <Script
           id="genllms-embed"
-          src="https://cdn.genaiollms.com/embed.v1.js"
+          src="https://genaiollms.com/embed.v1.js"
           data-username="suhwan-kim"
           data-key="557b915c479d4032849471358e7db21c"
           data-lang="ko"
@@ -89,7 +89,7 @@ export default function RootLayout({
         />
         <noscript>
           <iframe
-            src="https://cdn.genaiollms.com/prerender/partner_bcubekr_home"
+            src="https://genaiollms.com/prerender/partner_bcubekr_home"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"></iframe>
         </noscript>
