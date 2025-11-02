@@ -71,7 +71,6 @@ export default function RootLayout({
           id="genllms-meta-loader"
           src="https://genaiollms.com/meta-loader.v1.js"
           strategy="beforeInteractive"
-          data-id="partner_bcubekr_home"
           data-lang="ko"
         />
       </head>
@@ -89,7 +88,7 @@ export default function RootLayout({
         />
         <noscript>
           <iframe
-            src="https://genaiollms.com/prerender/partner_bcubekr_home"
+            src="https://genaiollms.com/prerender"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"></iframe>
         </noscript>
