@@ -67,12 +67,13 @@ export default function RootLayout({
     <html lang="ko" className={pretendard.variable}>
       <head>
         {/* GenLLMS meta-loader: data-id/data-lang은 발급 값으로 교체 */}
-        <Script
-          id="genllms-meta-loader"
-          src="https://genaiollms.com/meta-loader.v1.js"
-          strategy="beforeInteractive"
-          data-lang="ko"
-        />
+        <script
+          defer
+          src="http://localhost:3000/meta-loader.v1.js"
+          data-id="024b0012421b"
+          data-token="024b0012421b"
+          data-watch-url="true"
+          data-mode="override"></script>
       </head>
       <GoogleAnalytics gaId="G-16CC2DB93Q" />
       <body className="font-pretendard">
