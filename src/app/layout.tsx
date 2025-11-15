@@ -70,8 +70,8 @@ export default function RootLayout({
         <script
           defer
           src="http://localhost:3000/meta-loader.v1.js"
-          data-id="024b0012421b"
-          data-token="024b0012421b"
+          data-id="56096b4b07d7"
+          data-token="56096b4b07d7"
           data-watch-url="true"
           data-mode="override"></script>
       </head>
