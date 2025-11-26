@@ -69,11 +69,16 @@ export default function RootLayout({
         {/* GenLLMS meta-loader: data-id/data-lang은 발급 값으로 교체 */}
         <script
           defer
-          src="http://localhost:3000/meta-loader.v1.js"
-          data-id="56096b4b07d7"
-          data-token="56096b4b07d7"
+          src="https://genaiollms.com/meta-loader.v1.js"
+          data-id="a5ba3da89ed2"
+          data-token="a5ba3da89ed2"
           data-watch-url="true"
           data-mode="override"></script>
+        <script
+          src="https://botlog.genaiollms.com/bot-log.js"
+          defer
+          data-id="a5ba3da89ed2"
+          data-token="a5ba3da89ed2"></script>
       </head>
       <GoogleAnalytics gaId="G-16CC2DB93Q" />
       <body className="font-pretendard">
