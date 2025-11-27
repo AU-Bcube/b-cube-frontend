@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     'naver-site-verification': 'faeee0c5c10843f8a1f21c3ef305b36b5c7ac22b',
   },
   alternates: {
-    canonical: 'https://b-cube.kr',
+    canonical: 'http://localhost:3003',
   },
 };
 
@@ -69,34 +69,18 @@ export default function RootLayout({
         <script
           defer
           src="https://genaiollms.com/meta-loader.v1.js"
-          data-id="a5ba3da89ed2"
-          data-token="a5ba3da89ed2"
+          data-id="617daf21573a"
+          data-token="617daf21573a"
           data-watch-url="true"
           data-mode="override"></script>
         <script
           src="https://botlog.genaiollms.com/bot-log.js"
           defer
-          data-id="a5ba3da89ed2"
-          data-token="a5ba3da89ed2"></script>
+          data-id="617daf21573a"
+          data-token="617daf21573a"></script>
       </head>
       <GoogleAnalytics gaId="G-16CC2DB93Q" />
       <body className="font-pretendard">
-        {/* GenLLMS embed: username/key/lang은 발급 값으로 교체 */}
-        <Script
-          id="genllms-embed"
-          src="https://genaiollms.com/embed.v1.js"
-          data-username="suhwan-kim"
-          data-key="557b915c479d4032849471358e7db21c"
-          data-lang="ko"
-          data-track-endpoint="https://genaiollms.com/api/integration/script/track"
-          data-domain="b-cube.kr"
-        />
-        <noscript>
-          <iframe
-            src="https://genaiollms.com/prerender"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"></iframe>
-        </noscript>
         <div
           style={{
             position: 'fixed',
