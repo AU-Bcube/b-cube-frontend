@@ -16,6 +16,7 @@ export const config = {
 
 export async function middleware(request: NextRequest) {
   const url = new URL(request.url);
+  console.log('Middleware URL:', request.url);
   const { pathname } = url;
 
   // Skip API routes - never prerender them (check this FIRST before anything else)
@@ -128,9 +129,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const prerenderURL = `https://prerender.genaiollms.com/render?url=${encodeURIComponent(
-    request.url,
-  )}`;
+  const prerenderURL = `https://prerender.genaiollms.com/render?url=${request.url}`;
 
   console.log(`Bot detected: ${userAgent} - Prerendering: ${request.url}`);
 

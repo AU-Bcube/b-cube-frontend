@@ -1,15 +1,15 @@
 module.exports = {
-  output: "standalone",
+  output: 'standalone',
   compiler: {
-    removeConsole: true,
+    removeConsole: false,
   },
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "b-cube.kr",
-        port: "",
-        pathname: "/imgs/**",
+        protocol: 'https',
+        hostname: 'b-cube.kr',
+        port: '',
+        pathname: '/imgs/**',
       },
     ],
   },
