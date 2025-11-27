@@ -1,9 +1,9 @@
-export const defaultFetch = async(location: string) => {
+export const defaultFetch = async (location: string) => {
   return await fetch(`${process.env.NEXT_PUBLIC_API_HOST}${location}`, {
-    cache:"no-store", 
+    cache: 'no-store',
     headers: {
-      Referer: 'https://b-cube.kr',
+      Referer: 'http://b-cube.kr',
       'Content-Type': 'application/json',
     },
-  },).then((res) => res.json());
-}
+  }).then((res) => res.json());
+};
