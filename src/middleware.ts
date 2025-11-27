@@ -17,8 +17,7 @@ export const config = {
 export async function middleware(request: NextRequest) {
   const url = new URL(request.url);
   console.log('Middleware URL:', request.url);
-  const { pathname } = url;
-
+  const { pathname, search } = url;
   // Skip API routes - never prerender them (check this FIRST before anything else)
   if (pathname.startsWith('/api/')) {
     return NextResponse.next();
@@ -122,6 +121,9 @@ export async function middleware(request: NextRequest) {
     .slice(((pathname.lastIndexOf('.') - 1) >>> 0) + 1)
     .toLowerCase();
 
+  const origin = process.env.NEXT_PUBLIC_SITE_URL ?? url.origin;
+  const fullUrl = `${origin}${pathname}${search}`;
+
   if (
     !isBot ||
     (extension.length && IGNORE_EXTENSIONS.includes(`.${extension}`))
@@ -129,9 +131,9 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const prerenderURL = `https://prerender.genaiollms.com/render?url=${request.url}`;
+  const prerenderURL = `https://prerender.genaiollms.com/render?url=${fullUrl}`;
 
-  console.log(`Bot detected: ${userAgent} - Prerendering: ${request.url}`);
+  console.log(`Bot detected: ${userAgent} - Prerendering: ${fullUrl}`);
 
   try {
     const res = await fetch(
@@ -139,7 +141,7 @@ export async function middleware(request: NextRequest) {
         redirect: 'manual',
       }),
     );
-
+    console.log(res.status, await res.text());
     if (!res.body) {
       return NextResponse.next();
     }
