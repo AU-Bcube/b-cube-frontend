@@ -121,7 +121,7 @@ export async function middleware(request: NextRequest) {
     .slice(((pathname.lastIndexOf('.') - 1) >>> 0) + 1)
     .toLowerCase();
 
-  const origin = process.env.NEXT_PUBLIC_SITE_URL ?? url.origin;
+  const origin = process.env.NEXT_PUBLIC_API_HOST ?? url.origin;
   const fullUrl = `${origin}${pathname}${search}`;
 
   if (
