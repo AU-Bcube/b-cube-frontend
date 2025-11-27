@@ -66,7 +66,6 @@ export default function RootLayout({
   return (
     <html lang="ko" className={pretendard.variable}>
       <head>
-        {/* GenLLMS meta-loader: data-id/data-lang은 발급 값으로 교체 */}
         <script
           defer
           src="https://genaiollms.com/meta-loader.v1.js"
