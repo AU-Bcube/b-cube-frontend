@@ -141,7 +141,6 @@ export async function middleware(request: NextRequest) {
         redirect: 'manual',
       }),
     );
-    console.log(res.status, await res.text());
     if (!res.body) {
       return NextResponse.next();
     }
