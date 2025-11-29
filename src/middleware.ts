@@ -126,7 +126,7 @@ export async function middleware(request: NextRequest) {
 
   if (
     !isBot ||
-    (extension.length && IGNORE_EXTENSIONS.includes(`.${extension}`))
+    (extension.length && IGNORE_EXTENSIONS.includes(`${extension}`))
   ) {
     return NextResponse.next();
   }
