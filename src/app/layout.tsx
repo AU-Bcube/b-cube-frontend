@@ -71,7 +71,7 @@ export default function RootLayout({
           src="https://genaiollms.com/meta-loader.v1.js"
           data-id="617daf21573a"
           data-token="617daf21573a"
-          data-watch-url="true"
+          data-watch-url="false"
           data-mode="override"></script>
         <script
           src="https://botlog.genaiollms.com/bot-log.js"
