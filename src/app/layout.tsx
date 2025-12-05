@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     'naver-site-verification': 'faeee0c5c10843f8a1f21c3ef305b36b5c7ac22b',
   },
   alternates: {
-    canonical: 'http://localhost:3003',
+    canonical: 'https://b-cube.kr',
   },
 };
 
