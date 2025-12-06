@@ -69,15 +69,15 @@ export default function RootLayout({
         <script
           defer
           src="https://genaiollms.com/meta-loader.v1.js"
-          data-id="617daf21573a"
-          data-token="617daf21573a"
+          data-id="5dbfb237d6be"
+          data-token="5dbfb237d6be"
           data-watch-url="true"
           data-mode="override"></script>
         <script
           src="https://botlog.genaiollms.com/bot-log.js"
           defer
-          data-id="617daf21573a"
-          data-token="617daf21573a"></script>
+          data-id="5dbfb237d6be"
+          data-token="5dbfb237d6be"></script>
       </head>
       <GoogleAnalytics gaId="G-16CC2DB93Q" />
       <body className="font-pretendard">
