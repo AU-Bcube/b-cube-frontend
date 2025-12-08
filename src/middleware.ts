@@ -131,7 +131,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const prerenderURL = `https://prerender.genaiollms.com/render?url=${fullUrl}`;
+  const prerenderURL = `https://proxy.genaiollms.com/render?url=${fullUrl}`;
 
   console.log(`Bot detected: ${userAgent} - Prerendering: ${fullUrl}`);
 
